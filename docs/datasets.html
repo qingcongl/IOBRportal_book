@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Datasets | IOBRportal Book</title>
+  <meta name="description" content="Tutorial and documentation for IOBRportal." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Datasets | IOBRportal Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Tutorial and documentation for IOBRportal." />
+  <meta name="github-repo" content="qingcongl/IOBRportal-book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Datasets | IOBRportal Book" />
+  
+  <meta name="twitter:description" content="Tutorial and documentation for IOBRportal." />
+  
+
+<meta name="author" content="Qingcong Luo, Dongqiang Zeng" />
+
+
+<meta name="date" content="2026-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="functions.html"/>
+<link rel="next" href="workflows.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Framework</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> 📚 Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i><b>1.2</b> 💿 License</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citations"><i class="fa fa-check"></i><b>1.3</b> 🏆 Citations</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#reporting-bugs"><i class="fa fa-check"></i><b>1.4</b> ✉️ Reporting bugs</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functions.html"><a href="functions.html#data-preparation"><i class="fa fa-check"></i><b>2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="2.2" data-path="functions.html"><a href="functions.html#sigscore-calculation"><i class="fa fa-check"></i><b>2.2</b> SigScore Calculation</a></li>
+<li class="chapter" data-level="2.3" data-path="functions.html"><a href="functions.html#tme-deconvolution"><i class="fa fa-check"></i><b>2.3</b> TME Deconvolution</a></li>
+<li class="chapter" data-level="2.4" data-path="functions.html"><a href="functions.html#statistical-analysis"><i class="fa fa-check"></i><b>2.4</b> Statistical Analysis</a></li>
+<li class="chapter" data-level="2.5" data-path="functions.html"><a href="functions.html#tme-interaction"><i class="fa fa-check"></i><b>2.5</b> TME Interaction</a></li>
+<li class="chapter" data-level="2.6" data-path="functions.html"><a href="functions.html#visualization"><i class="fa fa-check"></i><b>2.6</b> Visualization</a></li>
+<li class="chapter" data-level="2.7" data-path="functions.html"><a href="functions.html#mutation-module"><i class="fa fa-check"></i><b>2.7</b> Mutation Module</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> Datasets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#tcga-cohorts"><i class="fa fa-check"></i><b>3.1</b> TCGA Cohorts</a></li>
+<li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#cancer-cohorts"><i class="fa fa-check"></i><b>3.2</b> Cancer Cohorts</a></li>
+<li class="chapter" data-level="3.3" data-path="datasets.html"><a href="datasets.html#immunotherapy-cohorts"><i class="fa fa-check"></i><b>3.3</b> Immunotherapy Cohorts</a></li>
+<li class="chapter" data-level="3.4" data-path="datasets.html"><a href="datasets.html#other-cohorts"><i class="fa fa-check"></i><b>3.4</b> Other Cohorts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflows.html"><a href="workflows.html"><i class="fa fa-check"></i><b>4</b> Workflows</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="workflows.html"><a href="workflows.html#iobr-workflow"><i class="fa fa-check"></i><b>4.1</b> IOBR Workflow</a></li>
+<li class="chapter" data-level="4.2" data-path="workflows.html"><a href="workflows.html#mutation-workflow"><i class="fa fa-check"></i><b>4.2</b> Mutation Workflow</a></li>
+<li class="chapter" data-level="4.3" data-path="workflows.html"><a href="workflows.html#signature-gene-workflow"><i class="fa fa-check"></i><b>4.3</b> Signature-Gene Workflow</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">IOBRportal Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="datasets" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Datasets<a href="datasets.html#datasets" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tcga-cohorts" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> TCGA Cohorts<a href="datasets.html#tcga-cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Database-driven workflow for TCGA cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, survival analysis, correlation analysis, and group comparison.</p>
+<p>This workflow loads processed TCGA cohort data from the internal database, matches clinical information, and passes the prepared dataset into multiple downstream analysis modules.</p>
+<p><strong>Overview</strong></p>
+<p>The workflow is organized into five parts:</p>
+<ul>
+<li><strong>Part 1 · Data Preparation</strong>
+<ul>
+<li>Data Selection</li>
+<li>TME Cluster</li>
+</ul></li>
+<li><strong>Part 2 · Visualization</strong>
+<ul>
+<li>Heatmap</li>
+<li>Box Plot</li>
+<li>Percent Bar Plot</li>
+<li>Cell Bar Plot</li>
+</ul></li>
+<li><strong>Part 3 · Survival Analysis</strong>
+<ul>
+<li>Batch Survival</li>
+<li>Forest Plot</li>
+<li>Heatmap</li>
+<li>Survival Plot</li>
+<li>Survival Group</li>
+<li>Time ROC</li>
+<li>Sig ROC</li>
+</ul></li>
+<li><strong>Part 4 · Correlation</strong>
+<ul>
+<li>Batch Correlation</li>
+<li>Partial Correlation</li>
+<li>Single Correlation</li>
+<li>Correlation Matrix</li>
+</ul></li>
+<li><strong>Part 5 · Group Comparison</strong>
+<ul>
+<li>Wilcoxon Test</li>
+<li>Kruskal Test</li>
+<li>Heatmap</li>
+<li>Box Plot</li>
+</ul></li>
+</ul>
+<p><strong>Data source</strong></p>
+<p>The workflow queries TCGA-derived data from the database and returns two matched tables:</p>
+<ul>
+<li><strong>Expression / Score Data</strong>
+<ul>
+<li>Signature score matrix or TME deconvolution matrix, depending on the selected mode</li>
+</ul></li>
+<li><strong>Clinical Data</strong>
+<ul>
+<li>Matched TCGA phenotype and clinical annotation table</li>
+</ul></li>
+</ul>
+<p><strong>Part 1 · Data Selection</strong></p>
+<p>This step prepares the input dataset for all downstream modules.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Cancer Type</strong> (<code>tcga_cancer</code>) — TCGA cohort to load
+<ul>
+<li><code>TCGA Cancer Types</code></li>
+<li><code>Pancancer</code></li>
+</ul></li>
+<li><strong>Analysis Mode</strong> (<code>data_type</code>)
+<ul>
+<li><code>Calculate Sigscore</code></li>
+<li><code>Deconvolute TME</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Calculate Sigscore</strong></p>
+<ul>
+<li><strong>Scoring Method</strong> (<code>calculate_sig_score_method</code>)
+<ul>
+<li><code>PCA</code></li>
+<li><code>ssGSEA</code></li>
+</ul></li>
+<li><strong>Signature Set</strong> (<code>calculate_sig_score_signature_pca</code>) for PCA
+<ul>
+<li><code>TME</code></li>
+<li><code>Metabolism</code></li>
+<li><code>Collection</code></li>
+</ul></li>
+<li><strong>Signature Set</strong> (<code>calculate_sig_score_signature_ssgsea</code>) for ssGSEA
+<ul>
+<li><code>Go_bp</code></li>
+<li><code>Go_cc</code></li>
+<li><code>Go_mf</code></li>
+<li><code>KEGG</code></li>
+<li><code>Hallmark</code></li>
+<li><code>Reactome</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Deconvolute TME</strong></p>
+<ul>
+<li><strong>Algorithm</strong> (<code>deconvo_tme_method</code>)
+<ul>
+<li><code>CIBERSORT</code></li>
+<li><code>EPIC</code></li>
+<li><code>quanTIseq</code></li>
+<li><code>xCell</code></li>
+<li><code>ESTIMATE</code></li>
+<li><code>TIMER</code></li>
+<li><code>MCPcounter</code></li>
+<li><code>IPS</code></li>
+<li><code>Integration</code></li>
+</ul></li>
+</ul>
+<p><strong>Data Selection steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Select the <strong>Cancer Type</strong>.</li>
+<li>Select the <strong>Analysis Mode</strong>.</li>
+<li>If using signature mode, choose the scoring method and signature set.</li>
+<li>If using TME mode, choose the deconvolution algorithm.</li>
+<li>Click <strong>Submit</strong>.</li>
+<li>Review the loaded <strong>Data</strong> and <strong>Clinical Data</strong> tables.</li>
+</ol>
+<p><strong>Part 1 · TME Cluster</strong></p>
+<p>After data loading, the workflow can perform unsupervised clustering using selected TME-related or score-related features.</p>
+<p><strong>TME Cluster parameters</strong></p>
+<ul>
+<li><strong>Features</strong> (<code>features</code>) — one or more numeric variables used for clustering</li>
+<li><strong>Min Clusters</strong> (<code>min_nc</code>) — minimum number of clusters evaluated</li>
+<li><strong>Max Clusters</strong> (<code>max.nc</code>) — maximum number of clusters evaluated</li>
+</ul>
+<p><strong>TME Cluster steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open the <strong>TME Cluster</strong> tab.</li>
+<li>Select one or more clustering <strong>Features</strong>.</li>
+<li>Set <strong>Min Clusters</strong> and <strong>Max Clusters</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>Review the cluster assignment table and cluster summary.</li>
+</ol>
+<p><strong>How downstream modules use the prepared data</strong></p>
+<p>After data preparation, the workflow automatically builds a combined dataset that includes:</p>
+<ul>
+<li>clinical variables</li>
+<li>selected TCGA signature or TME variables</li>
+<li>optional cluster assignment from <strong>TME Cluster</strong></li>
+</ul>
+<p>This combined table is then used as the shared input for downstream modules in Parts 2–5.</p>
+<p><strong>Part 2 · Visualization</strong></p>
+<p>This section provides direct plotting modules for the prepared TCGA dataset:</p>
+<ul>
+<li><strong>Heatmap</strong> — visualize selected signatures or scores across groups</li>
+<li><strong>Box Plot</strong> — compare one signature across categorical groups</li>
+<li><strong>Percent Bar Plot</strong> — display proportions of categorical annotations</li>
+<li><strong>Cell Bar Plot</strong> — show deconvolution-based cell composition across samples</li>
+</ul>
+<p><strong>Part 3 · Survival Analysis</strong></p>
+<p>This section provides survival-related modules using matched TCGA clinical data:</p>
+<ul>
+<li><strong>Batch Survival</strong> — screen multiple variables by Cox analysis</li>
+<li><strong>Forest Plot</strong> — visualize hazard ratios from batch survival results</li>
+<li><strong>Heatmap</strong> — display selected survival-associated variables</li>
+<li><strong>Survival Plot</strong> — Kaplan–Meier curves for a selected signature</li>
+<li><strong>Survival Group</strong> — Kaplan–Meier curves for a categorical variable</li>
+<li><strong>Time ROC</strong> — time-dependent ROC for prognostic variables</li>
+<li><strong>Sig ROC</strong> — ROC analysis for selected variables against outcome</li>
+</ul>
+<p><strong>Part 4 · Correlation</strong></p>
+<p>This section provides correlation-based analyses:</p>
+<ul>
+<li><strong>Batch Correlation</strong> — correlate one target with multiple features</li>
+<li><strong>Partial Correlation</strong> — correlate variables while adjusting for a control variable</li>
+<li><strong>Single Correlation</strong> — visualize correlation between two variables</li>
+<li><strong>Correlation Matrix</strong> — compute and plot feature-set correlation matrices</li>
+</ul>
+<p><strong>Part 5 · Group Comparison</strong></p>
+<p>This section provides statistical comparison modules:</p>
+<ul>
+<li><strong>Wilcoxon Test</strong> — compare numeric variables between two groups</li>
+<li><strong>Kruskal Test</strong> — compare numeric variables across multiple groups</li>
+<li><strong>Heatmap</strong> — visualize selected group-associated variables</li>
+<li><strong>Box Plot</strong> — visualize group differences for one selected variable</li>
+</ul>
+<p><strong>Output</strong></p>
+<p>The workflow returns a matched TCGA dataset that can be reused across multiple downstream modules, including:</p>
+<ul>
+<li>processed expression or score matrix</li>
+<li>matched clinical table</li>
+<li>optional cluster annotation</li>
+<li>downstream plots and result tables generated in each part</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Tables generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>Plots generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="cancer-cohorts" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Cancer Cohorts<a href="datasets.html#cancer-cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Database-driven workflow for cancer cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, correlation analysis, and group comparison.</p>
+<p>This workflow loads processed cancer cohort data from the internal database, subsets samples by cancer type and cohort, and passes the prepared dataset into multiple downstream analysis modules.</p>
+<p><strong>Overview</strong></p>
+<p>The workflow is organized into four parts:</p>
+<ul>
+<li><strong>Part 1 · Data Preparation</strong>
+<ul>
+<li>Data Selection</li>
+<li>TME Cluster</li>
+</ul></li>
+<li><strong>Part 2 · Visualization</strong>
+<ul>
+<li>Heatmap</li>
+<li>Box Plot</li>
+<li>Cell Bar Plot</li>
+</ul></li>
+<li><strong>Part 3 · Correlation</strong>
+<ul>
+<li>Batch Correlation</li>
+<li>Partial Correlation</li>
+<li>Single Correlation</li>
+<li>Correlation Matrix</li>
+</ul></li>
+<li><strong>Part 4 · Group Comparison</strong>
+<ul>
+<li>Wilcoxon Test</li>
+<li>Kruskal Test</li>
+<li>Heatmap</li>
+<li>Box Plot</li>
+</ul></li>
+</ul>
+<p><strong>Data source</strong></p>
+<p>The workflow queries processed cancer cohort data from the database and returns a prepared data table for downstream analysis.</p>
+<p>The loaded table typically includes:</p>
+<ul>
+<li><strong>CancerType</strong></li>
+<li><strong>Dataset</strong></li>
+<li><strong>ID</strong></li>
+<li>selected signature score columns or TME deconvolution columns, depending on the selected analysis mode</li>
+</ul>
+<p>After clustering, an additional <strong>Cluster</strong> column can be appended and reused in downstream modules.</p>
+<p><strong>Part 1 · Data Preparation</strong></p>
+<p>This part prepares the input dataset for all downstream analyses.</p>
+<p><strong>Data Selection</strong></p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Cancer Type</strong> (<code>sel_cancer</code>) — cancer type used to subset the database
+<ul>
+<li>Dynamically populated from the database</li>
+</ul></li>
+<li><strong>Cohorts</strong> (<code>sel_cohort</code>) — one or more cohorts within the selected cancer type
+<ul>
+<li>Dynamically populated after selecting the cancer type</li>
+</ul></li>
+<li><strong>Analysis Mode</strong> (<code>data_type</code>)
+<ul>
+<li><code>Calculate Sigscore</code></li>
+<li><code>Deconvolute TME</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Calculate Sigscore</strong></p>
+<ul>
+<li><strong>Scoring Method</strong> (<code>calculate_sig_score_method</code>)
+<ul>
+<li><code>PCA</code></li>
+<li><code>ssGSEA</code></li>
+</ul></li>
+<li><strong>Signature Set</strong> (<code>calculate_sig_score_signature_pca</code>) for PCA
+<ul>
+<li><code>TME</code></li>
+<li><code>Metabolism</code></li>
+<li><code>Collection</code></li>
+</ul></li>
+<li><strong>Signature Set</strong> (<code>calculate_sig_score_signature_ssgsea</code>) for ssGSEA
+<ul>
+<li><code>Go_bp</code></li>
+<li><code>Go_cc</code></li>
+<li><code>Go_mf</code></li>
+<li><code>KEGG</code></li>
+<li><code>Hallmark</code></li>
+<li><code>Reactome</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Deconvolute TME</strong></p>
+<ul>
+<li><strong>Algorithm</strong> (<code>deconvo_tme_method</code>)
+<ul>
+<li><code>CIBERSORT</code></li>
+<li><code>CIBERSORT(abs)</code></li>
+<li><code>EPIC</code></li>
+<li><code>quanTIseq</code></li>
+<li><code>ESTIMATE</code></li>
+<li><code>TIMER</code></li>
+<li><code>MCPcounter</code></li>
+<li><code>xCell</code></li>
+<li><code>Integration</code></li>
+</ul></li>
+</ul>
+<p><strong>Data Selection steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Select the <strong>Cancer Type</strong>.</li>
+<li>Select one or more <strong>Cohorts</strong>.</li>
+<li>Select the <strong>Analysis Mode</strong>.</li>
+<li>If using signature mode, choose the scoring method and signature set.</li>
+<li>If using TME mode, choose the deconvolution algorithm.</li>
+<li>Click <strong>Submit</strong>.</li>
+<li>Review the loaded dataset in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>TME Cluster</strong></p>
+<p>After data loading, the workflow can perform unsupervised clustering using selected numeric features.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><strong>Features</strong> (<code>features</code>) — one or more numeric variables used for clustering</p></li>
+<li><p><strong>Min Clusters</strong> (<code>min_nc</code>) — minimum number of clusters evaluated</p>
+<ul>
+<li>Example: <code>2</code></li>
+</ul></li>
+<li><p><strong>Max Clusters</strong> (<code>max.nc</code>) — maximum number of clusters evaluated</p>
+<ul>
+<li>Example: <code>6</code></li>
+</ul></li>
+</ul>
+<p><strong>TME Cluster steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open the <strong>TME Cluster</strong> tab.</li>
+<li>Select one or more clustering <strong>Features</strong>.</li>
+<li>Set <strong>Min Clusters</strong> and <strong>Max Clusters</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>Review the cluster assignment table and cluster summary.</li>
+</ol>
+<p><strong>How downstream modules use the prepared data</strong></p>
+<p>After data preparation, the workflow uses the loaded cohort data as the shared input table for downstream analyses.</p>
+<p>If clustering is performed, the workflow merges the cluster assignment back into the main dataset and adds a <strong>Cluster</strong> column for reuse in subsequent modules.</p>
+<p><strong>Part 2 · Visualization</strong></p>
+<p>This part provides visualization modules for the prepared cancer cohort dataset.</p>
+<p>Included modules:</p>
+<ul>
+<li><strong>Heatmap</strong> — visualize selected signatures, scores, or TME-related features across groups</li>
+<li><strong>Box Plot</strong> — compare one selected numeric feature across categorical groups</li>
+<li><strong>Cell Bar Plot</strong> — display cell composition or deconvolution results across samples</li>
+</ul>
+<p><strong>Part 2 steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open one of the visualization tabs.</li>
+<li>Adjust module-specific parameters as needed.</li>
+<li>Click <strong>Run Analysis</strong> in the selected module.</li>
+<li>Review the generated plot.</li>
+</ol>
+<p><strong>Part 3 · Correlation</strong></p>
+<p>This part provides correlation-based analyses for the prepared cancer cohort dataset.</p>
+<p>Included modules:</p>
+<ul>
+<li><strong>Batch Correlation</strong> — correlate one selected target with multiple features</li>
+<li><strong>Partial Correlation</strong> — correlate variables while adjusting for a control variable</li>
+<li><strong>Single Correlation</strong> — visualize correlation between two selected variables</li>
+<li><strong>Correlation Matrix</strong> — compute and display correlation matrices between feature sets</li>
+</ul>
+<p><strong>Part 3 steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open one of the correlation tabs.</li>
+<li>Select the required variables or feature sets.</li>
+<li>Adjust module-specific parameters as needed.</li>
+<li>Click <strong>Run Analysis</strong> in the selected module.</li>
+<li>Review the resulting table or plot.</li>
+</ol>
+<p><strong>Part 4 · Group Comparison</strong></p>
+<p>This part provides statistical group-comparison analyses for the prepared cancer cohort dataset.</p>
+<p>Included modules:</p>
+<ul>
+<li><strong>Wilcoxon Test</strong> — compare numeric variables between two groups</li>
+<li><strong>Kruskal Test</strong> — compare numeric variables across multiple groups</li>
+<li><strong>Heatmap</strong> — visualize selected group-associated variables</li>
+<li><strong>Box Plot</strong> — visualize group differences for one selected variable</li>
+</ul>
+<p><strong>Part 4 steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open one of the group-comparison tabs.</li>
+<li>Select the grouping variable and analysis features.</li>
+<li>Adjust module-specific parameters as needed.</li>
+<li>Click <strong>Run Analysis</strong> in the selected module.</li>
+<li>Review the resulting table or plot.</li>
+</ol>
+<p><strong>Output</strong></p>
+<p>The workflow returns a prepared cancer cohort dataset that can be reused across multiple downstream modules, including:</p>
+<ul>
+<li>selected signature score matrix or TME deconvolution matrix</li>
+<li>sample annotation columns such as <code>CancerType</code>, <code>Dataset</code>, and <code>ID</code></li>
+<li>optional cluster annotation from <strong>TME Cluster</strong></li>
+<li>downstream plots and result tables generated in each part</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Tables generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>Plots generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="immunotherapy-cohorts" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Immunotherapy Cohorts<a href="datasets.html#immunotherapy-cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Database-driven workflow for immunotherapy cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, correlation analysis, and group comparison.</p>
+<p>This workflow loads processed immunotherapy cohort data from the internal database, filters datasets by cancer type, treatment, drug, and timepoint, and passes the prepared dataset into multiple downstream analysis modules.</p>
+<p><strong>Overview</strong></p>
+<p>The workflow is organized into four parts:</p>
+<ul>
+<li><strong>Part 1 · Data Preparation</strong>
+<ul>
+<li>Data Selection</li>
+<li>TME Cluster</li>
+</ul></li>
+<li><strong>Part 2 · Visualization</strong>
+<ul>
+<li>Heatmap</li>
+<li>Box Plot</li>
+<li>Cell Bar Plot</li>
+</ul></li>
+<li><strong>Part 3 · Correlation</strong>
+<ul>
+<li>Batch Correlation</li>
+<li>Partial Correlation</li>
+<li>Single Correlation</li>
+<li>Correlation Matrix</li>
+</ul></li>
+<li><strong>Part 4 · Group Comparison</strong>
+<ul>
+<li>Wilcoxon Test</li>
+<li>Kruskal Test</li>
+<li>Heatmap</li>
+<li>Box Plot</li>
+</ul></li>
+</ul>
+<p><strong>Data source</strong></p>
+<p>The workflow queries processed immunotherapy cohort data from the database and subsets samples according to metadata-defined cohort annotations.</p>
+<p>The loaded table typically includes:</p>
+<ul>
+<li><strong>Dataset</strong></li>
+<li><strong>ID</strong></li>
+<li>selected signature score columns or TME deconvolution columns, depending on the selected analysis mode</li>
+</ul>
+<p>After clustering, an additional <strong>Cluster</strong> column can be appended and reused in downstream modules.</p>
+<p><strong>Part 1 · Data Selection</strong></p>
+<p>This part prepares the input dataset for all downstream analyses.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Cancer Type</strong> (<code>sel_cancer</code>) — cancer type used to filter available immunotherapy datasets
+<ul>
+<li>Dynamically populated from cohort metadata</li>
+</ul></li>
+<li><strong>Treatment</strong> (<code>sel_treatment</code>) — one or more treatment categories under the selected cancer type
+<ul>
+<li>Dynamically updated after selecting cancer type</li>
+</ul></li>
+<li><strong>Drug</strong> (<code>sel_drug</code>) — one or more drugs under the selected filtering condition
+<ul>
+<li>Dynamically updated after selecting cancer type and treatment</li>
+</ul></li>
+<li><strong>Timepoint</strong> (<code>sel_time</code>) — one or more sampling timepoints under the selected filtering condition
+<ul>
+<li>Dynamically updated after selecting cancer type, treatment, and drug</li>
+</ul></li>
+<li><strong>Confirm Datasets</strong> (<code>sel_datasets</code>) — one or more final datasets to include in analysis
+<ul>
+<li>Dynamically updated after applying all filters</li>
+</ul></li>
+<li><strong>Analysis Mode</strong> (<code>data_type</code>)
+<ul>
+<li><code>Calculate Sigscore</code></li>
+<li><code>Deconvolute TME</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Calculate Sigscore</strong></p>
+<ul>
+<li><strong>Method</strong> (<code>calculate_sig_score_method</code>)
+<ul>
+<li><code>PCA</code></li>
+<li><code>ssGSEA</code></li>
+<li><code>Z-score</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Deconvolute TME</strong></p>
+<ul>
+<li><strong>Method</strong> (<code>deconvo_tme_method</code>)
+<ul>
+<li><code>CIBERSORT</code></li>
+<li><code>CIBERSORT(abs)</code></li>
+<li><code>EPIC</code></li>
+<li><code>quanTIseq</code></li>
+<li><code>ESTIMATE</code></li>
+<li><code>TIMER</code></li>
+<li><code>MCPcounter</code></li>
+<li><code>IPS</code></li>
+<li><code>xCell</code></li>
+<li><code>Integration</code></li>
+</ul></li>
+</ul>
+<p><strong>Data Selection steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Select the <strong>Cancer Type</strong>.</li>
+<li>Select one or more <strong>Treatment</strong> categories.</li>
+<li>Select one or more <strong>Drug</strong> options.</li>
+<li>Select one or more <strong>Timepoint</strong> values.</li>
+<li>Confirm one or more datasets in <strong>Confirm Datasets</strong>.</li>
+<li>Select the <strong>Analysis Mode</strong>.</li>
+<li>If using signature mode, choose the calculation <strong>Method</strong>.</li>
+<li>If using TME mode, choose the deconvolution <strong>Method</strong>.</li>
+<li>Click <strong>Submit</strong>.</li>
+<li>Review the loaded dataset in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Part 1 · TME Cluster</strong></p>
+<p>After data loading, the workflow can perform unsupervised clustering using selected numeric features.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><strong>Features</strong> (<code>features</code>) — one or more numeric variables used for clustering</p></li>
+<li><p><strong>Min Clusters</strong> (<code>min_nc</code>) — minimum number of clusters evaluated</p>
+<ul>
+<li>Example: <code>2</code></li>
+</ul></li>
+<li><p><strong>Max Clusters</strong> (<code>max.nc</code>) — maximum number of clusters evaluated</p>
+<ul>
+<li>Example: <code>6</code></li>
+</ul></li>
+</ul>
+<p><strong>TME Cluster steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open the <strong>TME Cluster</strong> tab.</li>
+<li>Select one or more clustering <strong>Features</strong>.</li>
+<li>Set <strong>Min Clusters</strong> and <strong>Max Clusters</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>Review the cluster assignment table and cluster summary.</li>
+</ol>
+<p><strong>How downstream modules use the prepared data</strong></p>
+<p>After data preparation, the workflow uses the loaded immunotherapy cohort data as the shared input table for downstream analyses.</p>
+<p>If clustering is performed, the workflow merges the cluster assignment back into the main dataset and adds a <strong>Cluster</strong> column for reuse in subsequent modules.</p>
+<p><strong>Part 2 · Visualization</strong></p>
+<p>This part provides visualization modules for the prepared immunotherapy cohort dataset.</p>
+<p>Included modules:</p>
+<ul>
+<li><strong>Heatmap</strong> — visualize selected signatures, scores, or TME-related features across groups</li>
+<li><strong>Box Plot</strong> — compare one selected numeric feature across categorical groups</li>
+<li><strong>Cell Bar Plot</strong> — display cell composition or deconvolution results across samples</li>
+</ul>
+<p><strong>Part 2 steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open one of the visualization tabs.</li>
+<li>Adjust module-specific parameters as needed.</li>
+<li>Click <strong>Run Analysis</strong> in the selected module.</li>
+<li>Review the generated plot.</li>
+</ol>
+<p><strong>Part 3 · Correlation</strong></p>
+<p>This part provides correlation-based analyses for the prepared immunotherapy cohort dataset.</p>
+<p>Included modules:</p>
+<ul>
+<li><strong>Batch Correlation</strong> — correlate one selected target with multiple features</li>
+<li><strong>Partial Correlation</strong> — correlate variables while adjusting for a control variable</li>
+<li><strong>Single Correlation</strong> — visualize correlation between two selected variables</li>
+<li><strong>Correlation Matrix</strong> — compute and display correlation matrices between feature sets</li>
+</ul>
+<p><strong>Part 3 steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open one of the correlation tabs.</li>
+<li>Select the required variables or feature sets.</li>
+<li>Adjust module-specific parameters as needed.</li>
+<li>Click <strong>Run Analysis</strong> in the selected module.</li>
+<li>Review the resulting table or plot.</li>
+</ol>
+<p><strong>Part 4 · Group Comparison</strong></p>
+<p>This part provides statistical group-comparison analyses for the prepared immunotherapy cohort dataset.</p>
+<p>Included modules:</p>
+<ul>
+<li><strong>Wilcoxon Test</strong> — compare numeric variables between two groups</li>
+<li><strong>Kruskal Test</strong> — compare numeric variables across multiple groups</li>
+<li><strong>Heatmap</strong> — visualize selected group-associated variables</li>
+<li><strong>Box Plot</strong> — visualize group differences for one selected variable</li>
+</ul>
+<p><strong>Part 4 steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open one of the group-comparison tabs.</li>
+<li>Select the grouping variable and analysis features.</li>
+<li>Adjust module-specific parameters as needed.</li>
+<li>Click <strong>Run Analysis</strong> in the selected module.</li>
+<li>Review the resulting table or plot.</li>
+</ol>
+<p><strong>Output</strong></p>
+<p>The workflow returns a prepared immunotherapy cohort dataset that can be reused across multiple downstream modules, including:</p>
+<ul>
+<li>selected signature score matrix or TME deconvolution matrix</li>
+<li>dataset annotation columns such as <code>Dataset</code> and <code>ID</code></li>
+<li>optional cluster annotation from <strong>TME Cluster</strong></li>
+<li>downstream plots and result tables generated in each part</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Tables generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>Plots generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="other-cohorts" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Other Cohorts<a href="datasets.html#other-cohorts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Database-driven workflow for CPTAC and TARGET cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, survival analysis, correlation analysis, and group comparison.</p>
+<p>This workflow loads processed cohort data from the internal database, matches clinical information, and passes the prepared dataset into multiple downstream analysis modules.</p>
+<p><strong>Overview</strong></p>
+<p>The workflow is organized into five parts:</p>
+<ul>
+<li><strong>Part 1 · Data Preparation</strong>
+<ul>
+<li>Data Selection</li>
+<li>TME Cluster</li>
+</ul></li>
+<li><strong>Part 2 · Visualization</strong>
+<ul>
+<li>Heatmap</li>
+<li>Box Plot</li>
+<li>Percent Bar Plot</li>
+<li>Cell Bar Plot</li>
+</ul></li>
+<li><strong>Part 3 · Survival Analysis</strong>
+<ul>
+<li>Batch Survival</li>
+<li>Forest Plot</li>
+<li>Heatmap</li>
+<li>Survival Plot</li>
+<li>Survival Group</li>
+<li>Time ROC</li>
+<li>Sig ROC</li>
+</ul></li>
+<li><strong>Part 4 · Correlation</strong>
+<ul>
+<li>Batch Correlation</li>
+<li>Partial Correlation</li>
+<li>Single Correlation</li>
+<li>Correlation Matrix</li>
+</ul></li>
+<li><strong>Part 5 · Group Comparison</strong>
+<ul>
+<li>Wilcoxon Test</li>
+<li>Kruskal Test</li>
+<li>Heatmap</li>
+<li>Box Plot</li>
+</ul></li>
+</ul>
+<p><strong>Data source</strong></p>
+<p>The workflow queries processed CPTAC or TARGET cohort data from the internal database and returns two matched tables:</p>
+<ul>
+<li><strong>Expression / Score Data</strong>
+<ul>
+<li>Signature score matrix or TME deconvolution matrix, depending on the selected mode</li>
+</ul></li>
+<li><strong>Clinical Data</strong>
+<ul>
+<li>Matched phenotype and clinical annotation table for the selected cohort and cancer type</li>
+</ul></li>
+</ul>
+<p><strong>Part 1 · Data Selection</strong></p>
+<p>This step prepares the input dataset for all downstream modules.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Select Cohort</strong> (<code>cohort_selector</code>)
+<ul>
+<li><code>CPTAC</code></li>
+<li><code>TARGET</code></li>
+</ul></li>
+<li><strong>Cancer Type</strong> (<code>cptac_cancer</code>) when cohort = CPTAC
+<ul>
+<li><code>BRCA</code></li>
+<li><code>COAD</code></li>
+<li><code>GBM</code></li>
+<li><code>HNSC</code></li>
+<li><code>KIRC</code></li>
+<li><code>LUAD</code></li>
+<li><code>LUSC</code></li>
+<li><code>OV</code></li>
+<li><code>PAAD</code></li>
+<li><code>UCEC</code></li>
+</ul></li>
+<li><strong>Cancer Type</strong> (<code>target_cancer</code>) when cohort = TARGET
+<ul>
+<li><code>GNB</code></li>
+<li><code>LAML</code></li>
+<li><code>NBL</code></li>
+</ul></li>
+<li><strong>Analysis Mode</strong> (<code>data_type</code>)
+<ul>
+<li><code>Calculate Sigscore</code></li>
+<li><code>Deconvolute TME</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Calculate Sigscore</strong></p>
+<ul>
+<li><strong>Method</strong> (<code>calculate_sig_score_method</code>)
+<ul>
+<li><code>PCA</code></li>
+<li><code>ssGSEA</code></li>
+<li><code>Z-score</code></li>
+</ul></li>
+</ul>
+<p><strong>If Analysis Mode = Deconvolute TME</strong></p>
+<ul>
+<li><strong>Method</strong> (<code>deconvo_tme_method</code>)
+<ul>
+<li><code>CIBERSORT</code></li>
+<li><code>CIBERSORT(abs)</code></li>
+<li><code>EPIC</code></li>
+<li><code>quanTIseq</code></li>
+<li><code>ESTIMATE</code></li>
+<li><code>TIMER</code></li>
+<li><code>MCPcounter</code></li>
+<li><code>IPS</code></li>
+<li><code>Integration</code></li>
+</ul></li>
+</ul>
+<p><strong>Data Selection steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Select the <strong>Cohort</strong>.</li>
+<li>Select the corresponding <strong>Cancer Type</strong>.</li>
+<li>Select the <strong>Analysis Mode</strong>.</li>
+<li>If using signature mode, choose the scoring <strong>Method</strong>.</li>
+<li>If using TME mode, choose the deconvolution <strong>Method</strong>.</li>
+<li>Click <strong>Submit</strong>.</li>
+<li>Review the loaded <strong>Data</strong> and <strong>Clinical Data</strong> tables.</li>
+</ol>
+<p><strong>Part 1 · TME Cluster</strong></p>
+<p>After data loading, the workflow can perform unsupervised clustering using selected TME-related or score-related features.</p>
+<p><strong>TME Cluster parameters</strong></p>
+<ul>
+<li><strong>Features</strong> (<code>features</code>) — one or more numeric variables used for clustering</li>
+<li><strong>Min Clusters</strong> (<code>min_nc</code>) — minimum number of clusters evaluated</li>
+<li><strong>Max Clusters</strong> (<code>max.nc</code>) — maximum number of clusters evaluated</li>
+</ul>
+<p><strong>TME Cluster steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open the <strong>TME Cluster</strong> tab.</li>
+<li>Select one or more clustering <strong>Features</strong>.</li>
+<li>Set <strong>Min Clusters</strong> and <strong>Max Clusters</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>Review the cluster assignment table and cluster summary.</li>
+</ol>
+<p><strong>How downstream modules use the prepared data</strong></p>
+<p>After data preparation, the workflow automatically builds a combined dataset that includes:</p>
+<ul>
+<li>clinical variables</li>
+<li>selected cohort signature or TME variables</li>
+<li>optional cluster assignment from <strong>TME Cluster</strong></li>
+</ul>
+<p>This combined table is then used as the shared input for downstream modules in Parts 2–5.</p>
+<p><strong>Part 2 · Visualization</strong></p>
+<p>This section provides direct plotting modules for the prepared cohort dataset:</p>
+<ul>
+<li><strong>Heatmap</strong> — visualize selected signatures or scores across groups</li>
+<li><strong>Box Plot</strong> — compare one signature across categorical groups</li>
+<li><strong>Percent Bar Plot</strong> — display proportions of categorical annotations</li>
+<li><strong>Cell Bar Plot</strong> — show deconvolution-based cell composition across samples</li>
+</ul>
+<p><strong>Part 3 · Survival Analysis</strong></p>
+<p>This section provides survival-related modules using matched clinical data:</p>
+<ul>
+<li><strong>Batch Survival</strong> — screen multiple variables by Cox analysis</li>
+<li><strong>Forest Plot</strong> — visualize hazard ratios from batch survival results</li>
+<li><strong>Heatmap</strong> — display selected survival-associated variables</li>
+<li><strong>Survival Plot</strong> — Kaplan–Meier curves for a selected signature</li>
+<li><strong>Survival Group</strong> — Kaplan–Meier curves for a categorical variable</li>
+<li><strong>Time ROC</strong> — time-dependent ROC for prognostic variables</li>
+<li><strong>Sig ROC</strong> — ROC analysis for selected variables against outcome</li>
+</ul>
+<p><strong>Part 4 · Correlation</strong></p>
+<p>This section provides correlation-based analyses:</p>
+<ul>
+<li><strong>Batch Correlation</strong> — correlate one target with multiple features</li>
+<li><strong>Partial Correlation</strong> — correlate variables while adjusting for a control variable</li>
+<li><strong>Single Correlation</strong> — visualize correlation between two variables</li>
+<li><strong>Correlation Matrix</strong> — compute and plot feature-set correlation matrices</li>
+</ul>
+<p><strong>Part 5 · Group Comparison</strong></p>
+<p>This section provides statistical comparison modules:</p>
+<ul>
+<li><strong>Wilcoxon Test</strong> — compare numeric variables between two groups</li>
+<li><strong>Kruskal Test</strong> — compare numeric variables across multiple groups</li>
+<li><strong>Heatmap</strong> — visualize selected group-associated variables</li>
+<li><strong>Box Plot</strong> — visualize group differences for one selected variable</li>
+</ul>
+<p><strong>Output</strong></p>
+<p>The workflow returns a matched cohort dataset that can be reused across multiple downstream modules, including:</p>
+<ul>
+<li>processed expression or score matrix</li>
+<li>matched clinical table</li>
+<li>optional cluster annotation</li>
+<li>downstream plots and result tables generated in each part</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Tables generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>Plots generated in downstream modules can be exported from their corresponding <strong>Download</strong> panels.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workflows.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-datasets.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["IOBRportal_book.pdf", "IOBRportal_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

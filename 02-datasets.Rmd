@@ -1,0 +1,791 @@
+# Datasets
+
+## TCGA Cohorts
+
+Database-driven workflow for TCGA cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, survival analysis, correlation analysis, and group comparison.
+
+This workflow loads processed TCGA cohort data from the internal database, matches clinical information, and passes the prepared dataset into multiple downstream analysis modules.
+
+**Overview**
+
+The workflow is organized into five parts:
+
+- **Part 1 · Data Preparation**
+  - Data Selection
+  - TME Cluster
+
+- **Part 2 · Visualization**
+  - Heatmap
+  - Box Plot
+  - Percent Bar Plot
+  - Cell Bar Plot
+
+- **Part 3 · Survival Analysis**
+  - Batch Survival
+  - Forest Plot
+  - Heatmap
+  - Survival Plot
+  - Survival Group
+  - Time ROC
+  - Sig ROC
+
+- **Part 4 · Correlation**
+  - Batch Correlation
+  - Partial Correlation
+  - Single Correlation
+  - Correlation Matrix
+
+- **Part 5 · Group Comparison**
+  - Wilcoxon Test
+  - Kruskal Test
+  - Heatmap
+  - Box Plot
+
+**Data source**
+
+The workflow queries TCGA-derived data from the database and returns two matched tables:
+
+- **Expression / Score Data**
+  - Signature score matrix or TME deconvolution matrix, depending on the selected mode
+
+- **Clinical Data**
+  - Matched TCGA phenotype and clinical annotation table
+
+**Part 1 · Data Selection**
+
+This step prepares the input dataset for all downstream modules.
+
+**Parameters**
+
+- **Cancer Type** (`tcga_cancer`) — TCGA cohort to load
+  - `TCGA Cancer Types`
+  - `Pancancer`
+- **Analysis Mode** (`data_type`)
+  - `Calculate Sigscore`
+  - `Deconvolute TME`
+
+**If Analysis Mode = Calculate Sigscore**
+
+- **Scoring Method** (`calculate_sig_score_method`)
+  - `PCA`
+  - `ssGSEA`
+
+- **Signature Set** (`calculate_sig_score_signature_pca`) for PCA
+  - `TME`
+  - `Metabolism`
+  - `Collection`
+
+- **Signature Set** (`calculate_sig_score_signature_ssgsea`) for ssGSEA
+  - `Go_bp`
+  - `Go_cc`
+  - `Go_mf`
+  - `KEGG`
+  - `Hallmark`
+  - `Reactome`
+
+**If Analysis Mode = Deconvolute TME**
+
+- **Algorithm** (`deconvo_tme_method`)
+  - `CIBERSORT`
+  - `EPIC`
+  - `quanTIseq`
+  - `xCell`
+  - `ESTIMATE`
+  - `TIMER`
+  - `MCPcounter`
+  - `IPS`
+  - `Integration`
+
+**Data Selection steps**
+
+1. Select the **Cancer Type**.
+2. Select the **Analysis Mode**.
+3. If using signature mode, choose the scoring method and signature set.
+4. If using TME mode, choose the deconvolution algorithm.
+5. Click **Submit**.
+6. Review the loaded **Data** and **Clinical Data** tables.
+
+**Part 1 · TME Cluster**
+
+After data loading, the workflow can perform unsupervised clustering using selected TME-related or score-related features.
+
+**TME Cluster parameters**
+
+- **Features** (`features`) — one or more numeric variables used for clustering
+- **Min Clusters** (`min_nc`) — minimum number of clusters evaluated
+- **Max Clusters** (`max.nc`) — maximum number of clusters evaluated
+
+**TME Cluster steps**
+
+1. Open the **TME Cluster** tab.
+2. Select one or more clustering **Features**.
+3. Set **Min Clusters** and **Max Clusters**.
+4. Click **Run Analysis**.
+5. Review the cluster assignment table and cluster summary.
+
+**How downstream modules use the prepared data**
+
+After data preparation, the workflow automatically builds a combined dataset that includes:
+
+- clinical variables
+- selected TCGA signature or TME variables
+- optional cluster assignment from **TME Cluster**
+
+This combined table is then used as the shared input for downstream modules in Parts 2–5.
+
+**Part 2 · Visualization**
+
+This section provides direct plotting modules for the prepared TCGA dataset:
+
+- **Heatmap** — visualize selected signatures or scores across groups
+- **Box Plot** — compare one signature across categorical groups
+- **Percent Bar Plot** — display proportions of categorical annotations
+- **Cell Bar Plot** — show deconvolution-based cell composition across samples
+
+**Part 3 · Survival Analysis**
+
+This section provides survival-related modules using matched TCGA clinical data:
+
+- **Batch Survival** — screen multiple variables by Cox analysis
+- **Forest Plot** — visualize hazard ratios from batch survival results
+- **Heatmap** — display selected survival-associated variables
+- **Survival Plot** — Kaplan–Meier curves for a selected signature
+- **Survival Group** — Kaplan–Meier curves for a categorical variable
+- **Time ROC** — time-dependent ROC for prognostic variables
+- **Sig ROC** — ROC analysis for selected variables against outcome
+
+**Part 4 · Correlation**
+
+This section provides correlation-based analyses:
+
+- **Batch Correlation** — correlate one target with multiple features
+- **Partial Correlation** — correlate variables while adjusting for a control variable
+- **Single Correlation** — visualize correlation between two variables
+- **Correlation Matrix** — compute and plot feature-set correlation matrices
+
+**Part 5 · Group Comparison**
+
+This section provides statistical comparison modules:
+
+- **Wilcoxon Test** — compare numeric variables between two groups
+- **Kruskal Test** — compare numeric variables across multiple groups
+- **Heatmap** — visualize selected group-associated variables
+- **Box Plot** — visualize group differences for one selected variable
+
+**Output**
+
+The workflow returns a matched TCGA dataset that can be reused across multiple downstream modules, including:
+
+- processed expression or score matrix
+- matched clinical table
+- optional cluster annotation
+- downstream plots and result tables generated in each part
+
+**Download**
+
+- Tables generated in downstream modules can be exported from their corresponding **Download** panels.
+- Plots generated in downstream modules can be exported from their corresponding **Download** panels.
+- An initial plot size is provided, which can be adjusted if needed.
+- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
+
+
+## Cancer Cohorts
+
+Database-driven workflow for cancer cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, correlation analysis, and group comparison.
+
+This workflow loads processed cancer cohort data from the internal database, subsets samples by cancer type and cohort, and passes the prepared dataset into multiple downstream analysis modules.
+
+**Overview**
+
+The workflow is organized into four parts:
+
+- **Part 1 · Data Preparation**
+  - Data Selection
+  - TME Cluster
+
+- **Part 2 · Visualization**
+  - Heatmap
+  - Box Plot
+  - Cell Bar Plot
+
+- **Part 3 · Correlation**
+  - Batch Correlation
+  - Partial Correlation
+  - Single Correlation
+  - Correlation Matrix
+
+- **Part 4 · Group Comparison**
+  - Wilcoxon Test
+  - Kruskal Test
+  - Heatmap
+  - Box Plot
+
+**Data source**
+
+The workflow queries processed cancer cohort data from the database and returns a prepared data table for downstream analysis.
+
+The loaded table typically includes:
+
+- **CancerType**
+- **Dataset**
+- **ID**
+- selected signature score columns or TME deconvolution columns, depending on the selected analysis mode
+
+After clustering, an additional **Cluster** column can be appended and reused in downstream modules.
+
+**Part 1 · Data Preparation**
+
+This part prepares the input dataset for all downstream analyses.
+
+**Data Selection**
+
+**Parameters**
+
+- **Cancer Type** (`sel_cancer`) — cancer type used to subset the database
+  - Dynamically populated from the database
+
+- **Cohorts** (`sel_cohort`) — one or more cohorts within the selected cancer type
+  - Dynamically populated after selecting the cancer type
+
+- **Analysis Mode** (`data_type`)
+  - `Calculate Sigscore`
+  - `Deconvolute TME`
+
+**If Analysis Mode = Calculate Sigscore**
+
+- **Scoring Method** (`calculate_sig_score_method`)
+  - `PCA`
+  - `ssGSEA`
+
+- **Signature Set** (`calculate_sig_score_signature_pca`) for PCA
+  - `TME`
+  - `Metabolism`
+  - `Collection`
+
+- **Signature Set** (`calculate_sig_score_signature_ssgsea`) for ssGSEA
+  - `Go_bp`
+  - `Go_cc`
+  - `Go_mf`
+  - `KEGG`
+  - `Hallmark`
+  - `Reactome`
+
+**If Analysis Mode = Deconvolute TME**
+
+- **Algorithm** (`deconvo_tme_method`)
+  - `CIBERSORT`
+  - `CIBERSORT(abs)`
+  - `EPIC`
+  - `quanTIseq`
+  - `ESTIMATE`
+  - `TIMER`
+  - `MCPcounter`
+  - `xCell`
+  - `Integration`
+
+**Data Selection steps**
+
+1. Select the **Cancer Type**.
+2. Select one or more **Cohorts**.
+3. Select the **Analysis Mode**.
+4. If using signature mode, choose the scoring method and signature set.
+5. If using TME mode, choose the deconvolution algorithm.
+6. Click **Submit**.
+7. Review the loaded dataset in the **Data** tab.
+
+**TME Cluster**
+
+After data loading, the workflow can perform unsupervised clustering using selected numeric features.
+
+**Parameters**
+
+- **Features** (`features`) — one or more numeric variables used for clustering
+
+- **Min Clusters** (`min_nc`) — minimum number of clusters evaluated
+  - Example: `2`
+
+- **Max Clusters** (`max.nc`) — maximum number of clusters evaluated
+  - Example: `6`
+
+**TME Cluster steps**
+
+1. Open the **TME Cluster** tab.
+2. Select one or more clustering **Features**.
+3. Set **Min Clusters** and **Max Clusters**.
+4. Click **Run Analysis**.
+5. Review the cluster assignment table and cluster summary.
+
+**How downstream modules use the prepared data**
+
+After data preparation, the workflow uses the loaded cohort data as the shared input table for downstream analyses.
+
+If clustering is performed, the workflow merges the cluster assignment back into the main dataset and adds a **Cluster** column for reuse in subsequent modules.
+
+**Part 2 · Visualization**
+
+This part provides visualization modules for the prepared cancer cohort dataset.
+
+Included modules:
+
+- **Heatmap** — visualize selected signatures, scores, or TME-related features across groups
+- **Box Plot** — compare one selected numeric feature across categorical groups
+- **Cell Bar Plot** — display cell composition or deconvolution results across samples
+
+**Part 2 steps**
+
+1. Open one of the visualization tabs.
+2. Adjust module-specific parameters as needed.
+3. Click **Run Analysis** in the selected module.
+4. Review the generated plot.
+
+**Part 3 · Correlation**
+
+This part provides correlation-based analyses for the prepared cancer cohort dataset.
+
+Included modules:
+
+- **Batch Correlation** — correlate one selected target with multiple features
+- **Partial Correlation** — correlate variables while adjusting for a control variable
+- **Single Correlation** — visualize correlation between two selected variables
+- **Correlation Matrix** — compute and display correlation matrices between feature sets
+
+**Part 3 steps**
+
+1. Open one of the correlation tabs.
+2. Select the required variables or feature sets.
+3. Adjust module-specific parameters as needed.
+4. Click **Run Analysis** in the selected module.
+5. Review the resulting table or plot.
+
+**Part 4 · Group Comparison**
+
+This part provides statistical group-comparison analyses for the prepared cancer cohort dataset.
+
+Included modules:
+
+- **Wilcoxon Test** — compare numeric variables between two groups
+- **Kruskal Test** — compare numeric variables across multiple groups
+- **Heatmap** — visualize selected group-associated variables
+- **Box Plot** — visualize group differences for one selected variable
+
+**Part 4 steps**
+
+1. Open one of the group-comparison tabs.
+2. Select the grouping variable and analysis features.
+3. Adjust module-specific parameters as needed.
+4. Click **Run Analysis** in the selected module.
+5. Review the resulting table or plot.
+
+**Output**
+
+The workflow returns a prepared cancer cohort dataset that can be reused across multiple downstream modules, including:
+
+- selected signature score matrix or TME deconvolution matrix
+- sample annotation columns such as `CancerType`, `Dataset`, and `ID`
+- optional cluster annotation from **TME Cluster**
+- downstream plots and result tables generated in each part
+
+**Download**
+
+- Tables generated in downstream modules can be exported from their corresponding **Download** panels.
+- Plots generated in downstream modules can be exported from their corresponding **Download** panels.
+- An initial plot size is provided, which can be adjusted if needed.
+- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
+
+
+## Immunotherapy Cohorts
+
+Database-driven workflow for immunotherapy cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, correlation analysis, and group comparison.
+
+This workflow loads processed immunotherapy cohort data from the internal database, filters datasets by cancer type, treatment, drug, and timepoint, and passes the prepared dataset into multiple downstream analysis modules.
+
+**Overview**
+
+The workflow is organized into four parts:
+
+- **Part 1 · Data Preparation**
+  - Data Selection
+  - TME Cluster
+
+- **Part 2 · Visualization**
+  - Heatmap
+  - Box Plot
+  - Cell Bar Plot
+
+- **Part 3 · Correlation**
+  - Batch Correlation
+  - Partial Correlation
+  - Single Correlation
+  - Correlation Matrix
+
+- **Part 4 · Group Comparison**
+  - Wilcoxon Test
+  - Kruskal Test
+  - Heatmap
+  - Box Plot
+
+**Data source**
+
+The workflow queries processed immunotherapy cohort data from the database and subsets samples according to metadata-defined cohort annotations.
+
+The loaded table typically includes:
+
+- **Dataset**
+- **ID**
+- selected signature score columns or TME deconvolution columns, depending on the selected analysis mode
+
+After clustering, an additional **Cluster** column can be appended and reused in downstream modules.
+
+**Part 1 · Data Selection**
+
+This part prepares the input dataset for all downstream analyses.
+
+**Parameters**
+
+- **Cancer Type** (`sel_cancer`) — cancer type used to filter available immunotherapy datasets
+  - Dynamically populated from cohort metadata
+
+- **Treatment** (`sel_treatment`) — one or more treatment categories under the selected cancer type
+  - Dynamically updated after selecting cancer type
+
+- **Drug** (`sel_drug`) — one or more drugs under the selected filtering condition
+  - Dynamically updated after selecting cancer type and treatment
+
+- **Timepoint** (`sel_time`) — one or more sampling timepoints under the selected filtering condition
+  - Dynamically updated after selecting cancer type, treatment, and drug
+
+- **Confirm Datasets** (`sel_datasets`) — one or more final datasets to include in analysis
+  - Dynamically updated after applying all filters
+
+- **Analysis Mode** (`data_type`)
+  - `Calculate Sigscore`
+  - `Deconvolute TME`
+
+**If Analysis Mode = Calculate Sigscore**
+
+- **Method** (`calculate_sig_score_method`)
+  - `PCA`
+  - `ssGSEA`
+  - `Z-score`
+
+**If Analysis Mode = Deconvolute TME**
+
+- **Method** (`deconvo_tme_method`)
+  - `CIBERSORT`
+  - `CIBERSORT(abs)`
+  - `EPIC`
+  - `quanTIseq`
+  - `ESTIMATE`
+  - `TIMER`
+  - `MCPcounter`
+  - `IPS`
+  - `xCell`
+  - `Integration`
+
+**Data Selection steps**
+
+1. Select the **Cancer Type**.
+2. Select one or more **Treatment** categories.
+3. Select one or more **Drug** options.
+4. Select one or more **Timepoint** values.
+5. Confirm one or more datasets in **Confirm Datasets**.
+6. Select the **Analysis Mode**.
+7. If using signature mode, choose the calculation **Method**.
+8. If using TME mode, choose the deconvolution **Method**.
+9. Click **Submit**.
+10. Review the loaded dataset in the **Data** tab.
+
+**Part 1 · TME Cluster**
+
+After data loading, the workflow can perform unsupervised clustering using selected numeric features.
+
+**Parameters**
+
+- **Features** (`features`) — one or more numeric variables used for clustering
+
+- **Min Clusters** (`min_nc`) — minimum number of clusters evaluated
+  - Example: `2`
+
+- **Max Clusters** (`max.nc`) — maximum number of clusters evaluated
+  - Example: `6`
+
+**TME Cluster steps**
+
+1. Open the **TME Cluster** tab.
+2. Select one or more clustering **Features**.
+3. Set **Min Clusters** and **Max Clusters**.
+4. Click **Run Analysis**.
+5. Review the cluster assignment table and cluster summary.
+
+**How downstream modules use the prepared data**
+
+After data preparation, the workflow uses the loaded immunotherapy cohort data as the shared input table for downstream analyses.
+
+If clustering is performed, the workflow merges the cluster assignment back into the main dataset and adds a **Cluster** column for reuse in subsequent modules.
+
+**Part 2 · Visualization**
+
+This part provides visualization modules for the prepared immunotherapy cohort dataset.
+
+Included modules:
+
+- **Heatmap** — visualize selected signatures, scores, or TME-related features across groups
+- **Box Plot** — compare one selected numeric feature across categorical groups
+- **Cell Bar Plot** — display cell composition or deconvolution results across samples
+
+**Part 2 steps**
+
+1. Open one of the visualization tabs.
+2. Adjust module-specific parameters as needed.
+3. Click **Run Analysis** in the selected module.
+4. Review the generated plot.
+
+**Part 3 · Correlation**
+
+This part provides correlation-based analyses for the prepared immunotherapy cohort dataset.
+
+Included modules:
+
+- **Batch Correlation** — correlate one selected target with multiple features
+- **Partial Correlation** — correlate variables while adjusting for a control variable
+- **Single Correlation** — visualize correlation between two selected variables
+- **Correlation Matrix** — compute and display correlation matrices between feature sets
+
+**Part 3 steps**
+
+1. Open one of the correlation tabs.
+2. Select the required variables or feature sets.
+3. Adjust module-specific parameters as needed.
+4. Click **Run Analysis** in the selected module.
+5. Review the resulting table or plot.
+
+**Part 4 · Group Comparison**
+
+This part provides statistical group-comparison analyses for the prepared immunotherapy cohort dataset.
+
+Included modules:
+
+- **Wilcoxon Test** — compare numeric variables between two groups
+- **Kruskal Test** — compare numeric variables across multiple groups
+- **Heatmap** — visualize selected group-associated variables
+- **Box Plot** — visualize group differences for one selected variable
+
+**Part 4 steps**
+
+1. Open one of the group-comparison tabs.
+2. Select the grouping variable and analysis features.
+3. Adjust module-specific parameters as needed.
+4. Click **Run Analysis** in the selected module.
+5. Review the resulting table or plot.
+
+**Output**
+
+The workflow returns a prepared immunotherapy cohort dataset that can be reused across multiple downstream modules, including:
+
+- selected signature score matrix or TME deconvolution matrix
+- dataset annotation columns such as `Dataset` and `ID`
+- optional cluster annotation from **TME Cluster**
+- downstream plots and result tables generated in each part
+
+**Download**
+
+- Tables generated in downstream modules can be exported from their corresponding **Download** panels.
+- Plots generated in downstream modules can be exported from their corresponding **Download** panels.
+- An initial plot size is provided, which can be adjusted if needed.
+- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
+
+
+## Other Cohorts
+
+Database-driven workflow for CPTAC and TARGET cohort analysis, including data selection, signature scoring or TME deconvolution, clustering, visualization, survival analysis, correlation analysis, and group comparison.
+
+This workflow loads processed cohort data from the internal database, matches clinical information, and passes the prepared dataset into multiple downstream analysis modules.
+
+**Overview**
+
+The workflow is organized into five parts:
+
+- **Part 1 · Data Preparation**
+  - Data Selection
+  - TME Cluster
+
+- **Part 2 · Visualization**
+  - Heatmap
+  - Box Plot
+  - Percent Bar Plot
+  - Cell Bar Plot
+
+- **Part 3 · Survival Analysis**
+  - Batch Survival
+  - Forest Plot
+  - Heatmap
+  - Survival Plot
+  - Survival Group
+  - Time ROC
+  - Sig ROC
+
+- **Part 4 · Correlation**
+  - Batch Correlation
+  - Partial Correlation
+  - Single Correlation
+  - Correlation Matrix
+
+- **Part 5 · Group Comparison**
+  - Wilcoxon Test
+  - Kruskal Test
+  - Heatmap
+  - Box Plot
+
+**Data source**
+
+The workflow queries processed CPTAC or TARGET cohort data from the internal database and returns two matched tables:
+
+- **Expression / Score Data**
+  - Signature score matrix or TME deconvolution matrix, depending on the selected mode
+
+- **Clinical Data**
+  - Matched phenotype and clinical annotation table for the selected cohort and cancer type
+
+**Part 1 · Data Selection**
+
+This step prepares the input dataset for all downstream modules.
+
+**Parameters**
+
+- **Select Cohort** (`cohort_selector`)
+  - `CPTAC`
+  - `TARGET`
+
+- **Cancer Type** (`cptac_cancer`) when cohort = CPTAC
+  - `BRCA`
+  - `COAD`
+  - `GBM`
+  - `HNSC`
+  - `KIRC`
+  - `LUAD`
+  - `LUSC`
+  - `OV`
+  - `PAAD`
+  - `UCEC`
+
+- **Cancer Type** (`target_cancer`) when cohort = TARGET
+  - `GNB`
+  - `LAML`
+  - `NBL`
+
+- **Analysis Mode** (`data_type`)
+  - `Calculate Sigscore`
+  - `Deconvolute TME`
+
+**If Analysis Mode = Calculate Sigscore**
+
+- **Method** (`calculate_sig_score_method`)
+  - `PCA`
+  - `ssGSEA`
+  - `Z-score`
+
+**If Analysis Mode = Deconvolute TME**
+
+- **Method** (`deconvo_tme_method`)
+  - `CIBERSORT`
+  - `CIBERSORT(abs)`
+  - `EPIC`
+  - `quanTIseq`
+  - `ESTIMATE`
+  - `TIMER`
+  - `MCPcounter`
+  - `IPS`
+  - `Integration`
+
+**Data Selection steps**
+
+1. Select the **Cohort**.
+2. Select the corresponding **Cancer Type**.
+3. Select the **Analysis Mode**.
+4. If using signature mode, choose the scoring **Method**.
+5. If using TME mode, choose the deconvolution **Method**.
+6. Click **Submit**.
+7. Review the loaded **Data** and **Clinical Data** tables.
+
+**Part 1 · TME Cluster**
+
+After data loading, the workflow can perform unsupervised clustering using selected TME-related or score-related features.
+
+**TME Cluster parameters**
+
+- **Features** (`features`) — one or more numeric variables used for clustering
+- **Min Clusters** (`min_nc`) — minimum number of clusters evaluated
+- **Max Clusters** (`max.nc`) — maximum number of clusters evaluated
+
+**TME Cluster steps**
+
+1. Open the **TME Cluster** tab.
+2. Select one or more clustering **Features**.
+3. Set **Min Clusters** and **Max Clusters**.
+4. Click **Run Analysis**.
+5. Review the cluster assignment table and cluster summary.
+
+**How downstream modules use the prepared data**
+
+After data preparation, the workflow automatically builds a combined dataset that includes:
+
+- clinical variables
+- selected cohort signature or TME variables
+- optional cluster assignment from **TME Cluster**
+
+This combined table is then used as the shared input for downstream modules in Parts 2–5.
+
+**Part 2 · Visualization**
+
+This section provides direct plotting modules for the prepared cohort dataset:
+
+- **Heatmap** — visualize selected signatures or scores across groups
+- **Box Plot** — compare one signature across categorical groups
+- **Percent Bar Plot** — display proportions of categorical annotations
+- **Cell Bar Plot** — show deconvolution-based cell composition across samples
+
+**Part 3 · Survival Analysis**
+
+This section provides survival-related modules using matched clinical data:
+
+- **Batch Survival** — screen multiple variables by Cox analysis
+- **Forest Plot** — visualize hazard ratios from batch survival results
+- **Heatmap** — display selected survival-associated variables
+- **Survival Plot** — Kaplan–Meier curves for a selected signature
+- **Survival Group** — Kaplan–Meier curves for a categorical variable
+- **Time ROC** — time-dependent ROC for prognostic variables
+- **Sig ROC** — ROC analysis for selected variables against outcome
+
+**Part 4 · Correlation**
+
+This section provides correlation-based analyses:
+
+- **Batch Correlation** — correlate one target with multiple features
+- **Partial Correlation** — correlate variables while adjusting for a control variable
+- **Single Correlation** — visualize correlation between two variables
+- **Correlation Matrix** — compute and plot feature-set correlation matrices
+
+**Part 5 · Group Comparison**
+
+This section provides statistical comparison modules:
+
+- **Wilcoxon Test** — compare numeric variables between two groups
+- **Kruskal Test** — compare numeric variables across multiple groups
+- **Heatmap** — visualize selected group-associated variables
+- **Box Plot** — visualize group differences for one selected variable
+
+**Output**
+
+The workflow returns a matched cohort dataset that can be reused across multiple downstream modules, including:
+
+- processed expression or score matrix
+- matched clinical table
+- optional cluster annotation
+- downstream plots and result tables generated in each part
+
+**Download**
+
+- Tables generated in downstream modules can be exported from their corresponding **Download** panels.
+- Plots generated in downstream modules can be exported from their corresponding **Download** panels.
+- An initial plot size is provided, which can be adjusted if needed.
+- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.

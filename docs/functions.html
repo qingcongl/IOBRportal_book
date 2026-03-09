@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Functions | IOBRportal Book</title>
+  <meta name="description" content="Tutorial and documentation for IOBRportal." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Functions | IOBRportal Book" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Tutorial and documentation for IOBRportal." />
+  <meta name="github-repo" content="qingcongl/IOBRportal-book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Functions | IOBRportal Book" />
+  
+  <meta name="twitter:description" content="Tutorial and documentation for IOBRportal." />
+  
+
+<meta name="author" content="Qingcong Luo, Dongqiang Zeng" />
+
+
+<meta name="date" content="2026-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="datasets.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Framework</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>1.1</b> 📚 Introduction</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i><b>1.2</b> 💿 License</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#citations"><i class="fa fa-check"></i><b>1.3</b> 🏆 Citations</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#reporting-bugs"><i class="fa fa-check"></i><b>1.4</b> ✉️ Reporting bugs</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>2</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functions.html"><a href="functions.html#data-preparation"><i class="fa fa-check"></i><b>2.1</b> Data Preparation</a></li>
+<li class="chapter" data-level="2.2" data-path="functions.html"><a href="functions.html#sigscore-calculation"><i class="fa fa-check"></i><b>2.2</b> SigScore Calculation</a></li>
+<li class="chapter" data-level="2.3" data-path="functions.html"><a href="functions.html#tme-deconvolution"><i class="fa fa-check"></i><b>2.3</b> TME Deconvolution</a></li>
+<li class="chapter" data-level="2.4" data-path="functions.html"><a href="functions.html#statistical-analysis"><i class="fa fa-check"></i><b>2.4</b> Statistical Analysis</a></li>
+<li class="chapter" data-level="2.5" data-path="functions.html"><a href="functions.html#tme-interaction"><i class="fa fa-check"></i><b>2.5</b> TME Interaction</a></li>
+<li class="chapter" data-level="2.6" data-path="functions.html"><a href="functions.html#visualization"><i class="fa fa-check"></i><b>2.6</b> Visualization</a></li>
+<li class="chapter" data-level="2.7" data-path="functions.html"><a href="functions.html#mutation-module"><i class="fa fa-check"></i><b>2.7</b> Mutation Module</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> Datasets</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#tcga-cohorts"><i class="fa fa-check"></i><b>3.1</b> TCGA Cohorts</a></li>
+<li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#cancer-cohorts"><i class="fa fa-check"></i><b>3.2</b> Cancer Cohorts</a></li>
+<li class="chapter" data-level="3.3" data-path="datasets.html"><a href="datasets.html#immunotherapy-cohorts"><i class="fa fa-check"></i><b>3.3</b> Immunotherapy Cohorts</a></li>
+<li class="chapter" data-level="3.4" data-path="datasets.html"><a href="datasets.html#other-cohorts"><i class="fa fa-check"></i><b>3.4</b> Other Cohorts</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflows.html"><a href="workflows.html"><i class="fa fa-check"></i><b>4</b> Workflows</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="workflows.html"><a href="workflows.html#iobr-workflow"><i class="fa fa-check"></i><b>4.1</b> IOBR Workflow</a></li>
+<li class="chapter" data-level="4.2" data-path="workflows.html"><a href="workflows.html#mutation-workflow"><i class="fa fa-check"></i><b>4.2</b> Mutation Workflow</a></li>
+<li class="chapter" data-level="4.3" data-path="workflows.html"><a href="workflows.html#signature-gene-workflow"><i class="fa fa-check"></i><b>4.3</b> Signature-Gene Workflow</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">IOBRportal Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functions" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Functions<a href="functions.html#functions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter documents the function-level modules in IOBRportal (stepwise, modular analysis).</p>
+<div id="data-preparation" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Data Preparation<a href="functions.html#data-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="counts-to-tpm" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Counts to TPM<a href="functions.html#counts-to-tpm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Convert raw gene-level read counts to TPM (Transcripts Per Million) with gene-length normalization and library-size scaling. Optional log2 transformation can be applied after TPM conversion.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+ENSG00000000003      8006          2114          767           1556
+ENSG00000000005      1             0             5             5
+ENSG00000000419      3831          2600          1729          1760
+ENSG00000000457      1126          745           1040          1260</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Organism</strong> (<code>org</code>)
+<ul>
+<li>Human (<code>hsa</code>)</li>
+<li>Mouse (<code>mmus</code>)</li>
+</ul></li>
+<li><strong>ID Type</strong> (<code>idType</code>) — depends on the selected organism
+<ul>
+<li>Human: Ensembl / Entrez / Symbol</li>
+<li>Mouse: Ensembl / MGI / Symbol</li>
+</ul></li>
+<li><strong>Source</strong> (<code>source</code>) for gene-length annotation
+<ul>
+<li><code>local</code>: use built-in local annotation resources</li>
+<li><code>biomart</code>: retrieve annotation from Ensembl BioMart</li>
+</ul></li>
+<li><strong>Log2</strong>
+<ul>
+<li><code>True</code>: apply log2 transformation after TPM conversion</li>
+<li><code>False</code>: keep TPM values on the original scale</li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a count matrix.</li>
+<li>Select the <strong>Organism</strong>.</li>
+<li>Select the appropriate <strong>ID Type</strong>.</li>
+<li>Choose the <strong>Source</strong> for gene-length annotation.</li>
+<li>Choose whether to apply <strong>Log2</strong> transformation.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>           TCGA-BR-6455   TCGA-BR-7196   TCGA-BR-8371   TCGA-BR-8380
+MT-CO1     14.61531657    14.55416750    15.85331284    15.61442176
+MT-ND4     13.82638047    13.86929727    15.55664588    14.97415153
+MT-CO3     13.60573394    13.85689319    15.53842439    15.07683124
+IGKC       13.27294092    16.26343514    9.480865354    12.09469208</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="annotate-expressionset" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Annotate ExpressionSet<a href="functions.html#annotate-expressionset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Annotate an expression matrix with gene symbols using built-in annotation resources. The module maps probe or gene identifiers to gene symbols, removes invalid entries, resolves duplicated genes, and optionally applies log2 transformation.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  Sample_1   Sample_2   Sample_3   Sample_4
+ENSG00000121410      12.5       10.8       14.2       13.1
+ENSG00000175899       5.6        6.2        4.9        5.4
+ENSG00000256069       0.0        0.3        0.1        0.0
+ENSG00000111640       8.1        7.5        9.0        8.4</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Annotation</strong> (<code>annotation</code>)
+<ul>
+<li><code>RNA-seq (Human)</code> → <code>anno_grch38</code></li>
+<li><code>Affymetrix (Human)</code> → <code>anno_hug133plus2</code></li>
+<li><code>Illumina (Human)</code> → <code>anno_illumina</code></li>
+<li><code>RNA-seq (Mouse)</code> → <code>anno_gc_vm32</code></li>
+</ul></li>
+<li><strong>Method</strong> (<code>method</code>) — used to summarize duplicated gene symbols
+<ul>
+<li><code>Mean</code></li>
+<li><code>Sum</code></li>
+<li><code>Sd</code></li>
+</ul></li>
+<li><strong>Log2</strong>
+<ul>
+<li><code>True</code>: apply log2 transformation after annotation</li>
+<li><code>False</code>: keep values on the original scale</li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload an expression matrix.</li>
+<li>Select the appropriate <strong>Annotation</strong>.</li>
+<li>Choose the <strong>Method</strong> for duplicated genes.</li>
+<li>Choose whether to apply <strong>Log2</strong> transformation.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>         Sample_1   Sample_2   Sample_3   Sample_4
+MT-CO1      14.62      14.55      15.85      15.61
+MT-ND4      13.83      13.87      15.56      14.97
+IGKC        13.27      16.26       9.48      12.09
+EPCAM       10.42      10.10      11.03      10.88</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="detect-outlier-samples" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Detect Outlier Samples<a href="functions.html#detect-outlier-samples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Identify outlier samples from an expression matrix and remove them from the dataset. The module displays the cleaned matrix, shows the detected outlier samples, and provides a diagnostic plot for quality assessment.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+MT-CO1               14.62         14.55         15.85         15.61
+MT-ND4               13.83         13.87         15.56         14.97
+MT-CO3               13.61         13.86         15.54         15.08
+IGKC                 13.27         16.26          9.48         12.09</code></pre>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload an expression matrix.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the cleaned expression matrix in the <strong>Data_clean</strong> tab.</li>
+<li>View the diagnostic plot in the <strong>Plot</strong> tab.</li>
+<li>Check the detected outlier samples in the <strong>Outliers</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8380
+MT-CO1               14.62         14.55         15.61
+MT-ND4               13.83         13.87         14.97
+MT-CO3               13.61         13.86         15.08
+IGKC                 13.27         16.26         12.09</code></pre>
+<p><strong>Outliers</strong></p>
+<ul>
+<li>Example: <code>TCGA-BR-8371</code></li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Cleaned data can be exported from the <strong>Download</strong> panel.</li>
+<li>The diagnostic plot can be exported from the <strong>Plot</strong> tab.</li>
+</ul>
+</div>
+<div id="remove-duplicate-genes" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Remove Duplicate Genes<a href="functions.html#remove-duplicate-genes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Aggregate duplicated gene symbols in an expression matrix using the selected method. The module keeps one value per gene symbol and summarizes duplicate rows by Mean, SD, or Sum.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  id        TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+1                 IGKC          13.27         16.26          9.48         12.09
+2                 EPCAM         10.42         10.10         11.03         10.88
+3                 IGKC          12.95         15.80          9.12         11.74
+4                 KRT18         11.63         11.20         12.01         11.56</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Symbol Column</strong> (<code>column_of_symbol</code>)
+<ul>
+<li>Enter the column name containing gene symbols</li>
+<li>Example: <code>id</code></li>
+</ul></li>
+<li><strong>Method</strong> (<code>method</code>)
+<ul>
+<li><code>Mean</code></li>
+<li><code>SD</code></li>
+<li><code>Sum</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload an expression matrix containing one column of gene symbols.</li>
+<li>Enter the gene symbol column name in <strong>Symbol Column</strong>.</li>
+<li>Select the aggregation <strong>Method</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+IGKC                 13.11         16.03          9.30         11.92
+EPCAM                10.42         10.10         11.03         10.88
+KRT18                11.63         11.20         12.01         11.56</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="correct-batch-effect" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> Correct Batch Effect<a href="functions.html#correct-batch-effect" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Integrate multiple expression datasets and correct batch effects for downstream analysis. The module accepts two required datasets and one optional dataset, performs batch correction, returns the adjusted expression matrix, and displays a PCA plot for quality assessment.</p>
+<p><strong>Example input</strong></p>
+<p>Dataset 1</p>
+<pre><code>                  Sample_1   Sample_2   Sample_3   Sample_4
+ENSG00000000003      8006       2114        767       1556
+ENSG00000000005         1          0          5          5
+ENSG00000000419      3831       2600       1729       1760
+ENSG00000000457      1126        745       1040       1260</code></pre>
+<p>Dataset 2</p>
+<pre><code>                  Sample_5   Sample_6   Sample_7   Sample_8
+ENSG00000000003      7560       1980        845       1498
+ENSG00000000005         0          2          3          4
+ENSG00000000419      4012       2505       1810       1695
+ENSG00000000457      1203        802        998       1184</code></pre>
+<p>Dataset 3 (optional)</p>
+<pre><code>                  Sample_9   Sample_10  Sample_11  Sample_12
+ENSG00000000003      7902       2056        801       1520
+ENSG00000000005         1          1          4          6
+ENSG00000000419      3925       2588       1765       1712
+ENSG00000000457      1154        768       1024       1211</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>ID Type</strong> (<code>id_type</code>) — select the gene identifier format used in the uploaded datasets
+<ul>
+<li><code>Ensembl</code>: Ensembl gene IDs</li>
+<li><code>Symbol</code>: gene symbols</li>
+</ul></li>
+<li><strong>Data Type</strong> (<code>data_type</code>) — select the expression data format of the uploaded datasets
+<ul>
+<li><code>Array</code>: microarray expression data</li>
+<li><code>Count</code>: raw count matrix</li>
+<li><code>Tpm</code>: TPM-normalized expression matrix</li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload <strong>Dataset 1</strong>.</li>
+<li>Upload <strong>Dataset 2</strong>.</li>
+<li>Optionally upload <strong>Dataset 3</strong>.</li>
+<li>Select the appropriate <strong>ID Type</strong>.</li>
+<li>Select the appropriate <strong>Data Type</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the adjusted expression matrix in the <strong>Data</strong> tab.</li>
+<li>View the PCA plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                  Sample_1   Sample_2   Sample_3   Sample_4   Sample_5   Sample_6
+ENSG00000000003    13.42      12.11      10.67      11.52      13.30      12.03
+ENSG00000000005     0.25       0.00       0.58       0.61       0.00       0.32
+ENSG00000000419    12.68      12.11      11.54      11.60      12.75      12.02
+ENSG00000000457    11.21      10.63      11.08      11.34      11.30      10.78</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Batch-corrected data can be exported from the <strong>Download</strong> panel.</li>
+<li>The PCA plot can be exported from the <strong>Plot</strong> tab.</li>
+</ul>
+</div>
+<div id="mouse-to-human-genes" class="section level3 hasAnchor" number="2.1.6">
+<h3><span class="header-section-number">2.1.6</span> Mouse-to-Human Genes<a href="functions.html#mouse-to-human-genes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Convert mouse gene symbols in an expression matrix to human homolog gene symbols. The module supports matrix-formatted input or data frames with a dedicated gene symbol column.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  Sample_1   Sample_2   Sample_3   Sample_4
+Cd3d                 8.21       7.95       8.44       8.10
+Epcam                5.42       5.18       5.63       5.37
+Col1a1               9.87      10.12       9.65       9.94
+Mki67                6.30       6.05       6.88       6.41</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Source</strong> (<code>source</code>) — the source used for mouse-to-human homolog mapping
+<ul>
+<li><code>Ensembl</code>: retrieve homolog information from Ensembl</li>
+<li><code>Local</code>: use built-in local annotation resources</li>
+</ul></li>
+<li><strong>Matrix</strong> (<code>is_matrix</code>) — whether the uploaded data is a pure expression matrix
+<ul>
+<li><code>True</code>: row names are treated as gene symbols</li>
+<li><code>False</code>: gene symbols are stored in a separate column</li>
+</ul></li>
+<li><strong>Symbol Column</strong> (<code>column_of_symbol</code>) — the column containing mouse gene symbols when <strong>Matrix</strong> is <code>False</code>
+<ul>
+<li>Example: <code>symbol</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a mouse expression dataset.</li>
+<li>Select the homolog mapping <strong>Source</strong>.</li>
+<li>Choose whether the input is a pure <strong>Matrix</strong>.</li>
+<li>If <strong>Matrix</strong> is <code>False</code>, enter the gene symbol column name in <strong>Symbol Column</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                  Sample_1   Sample_2   Sample_3   Sample_4
+CD3D                 8.21       7.95       8.44       8.10
+EPCAM                5.42       5.18       5.63       5.37
+COL1A1               9.87      10.12       9.65       9.94
+MKI67                6.30       6.05       6.88       6.41</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+</div>
+<div id="sigscore-calculation" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> SigScore Calculation<a href="functions.html#sigscore-calculation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="calculate-sigscores" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Calculate SigScores<a href="functions.html#calculate-sigscores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Compute signature scores from an expression matrix using predefined gene signature collections. The module supports four scoring methods, including PCA, ssGSEA, z-score, and integration, and returns a sample-level score matrix for downstream analysis.</p>
+<p>This module is designed for transcriptome-based functional characterization. It can be used to quantify immune, metabolic, tumor-related, and pathway-associated signatures across samples. The output is typically a matrix in which each row represents one sample and each column represents one signature.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  TCGA-2F-A9KO  TCGA-2F-A9KP  TCGA-2F-A9KQ  TCGA-2F-A9KR
+CD8A                  8.421         7.952         6.884         8.103
+GZMB                  7.116         6.208         5.774         6.945
+EPCAM                 5.238         4.992         5.641         5.310
+MKI67                 6.803         7.126         6.542         6.918</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Method</strong> (<code>method</code>) — the algorithm used to calculate signature scores
+<ul>
+<li><code>PCA</code>: calculates signature scores based on principal component analysis</li>
+<li><code>ssGSEA</code>: calculates enrichment scores for each sample and signature</li>
+<li><code>Z-score</code>: calculates standardized scores based on the expression pattern of signature genes</li>
+<li><code>Integration</code>: integrates multiple scoring strategies into a combined score</li>
+</ul></li>
+<li><strong>Signature</strong> (<code>signature</code>) — the signature collection used for scoring
+<ul>
+<li><code>TME</code>: tumor microenvironment-related signatures</li>
+<li><code>Metabolism</code>: metabolism-related signatures</li>
+<li><code>Tumor</code>: tumor biology-related signatures</li>
+<li><code>Collection</code>: integrated signature collection provided in IOBR</li>
+<li><code>Go_bp</code>: Gene Ontology biological process signatures</li>
+<li><code>Go_cc</code>: Gene Ontology cellular component signatures</li>
+<li><code>Go_mf</code>: Gene Ontology molecular function signatures</li>
+<li><code>KEGG</code>: KEGG pathway signatures</li>
+<li><code>Hallmark</code>: MSigDB hallmark gene sets</li>
+<li><code>Reactome</code>: Reactome pathway signatures</li>
+</ul></li>
+<li><strong>Mini gene count</strong> (<code>mini_gene_count</code>) — the minimum number of matched genes required to calculate a valid score for a signature
+<ul>
+<li>Example: <code>3</code></li>
+<li>Signatures with fewer matched genes than this threshold may be skipped or filtered</li>
+</ul></li>
+<li><strong>Adjust eset</strong> (<code>adjust_eset</code>) — whether to internally adjust the expression matrix before score calculation
+<ul>
+<li><code>True</code>: apply internal adjustment before scoring</li>
+<li><code>False</code>: use the input matrix directly</li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload an expression matrix.</li>
+<li>Select the signature scoring <strong>Method</strong>.</li>
+<li>Select the desired <strong>Signature</strong> collection.</li>
+<li>Set the <strong>Mini gene count</strong> threshold.</li>
+<li>Choose whether to <strong>Adjust eset</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the score matrix in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                   ID          CD_8_T_effector       DDR           APM    Immune_Checkpoint  CellCycle_Reg
+1         TCGA-2F-A9KO         4.7093          -4.3653       3.1724          4.5259           -1.3468
+2         TCGA-2F-A9KP        -1.6480           5.0614      -1.3928         -1.4447            3.2313
+3         TCGA-2F-A9KQ        -2.1915         -11.1568      -1.8568         -1.7691            0.6771
+4         TCGA-2F-A9KR         0.0528           3.2845       1.6877         -0.2206           -1.3867
+5         TCGA-2F-A9KT        -0.9226           7.1762      -1.6106         -1.0915           -1.1749</code></pre>
+<p><strong>Output interpretation</strong></p>
+<ul>
+<li>Each row represents one sample.</li>
+<li>Each column represents one signature score.</li>
+<li>Positive values generally indicate relatively higher activity or enrichment of that signature in the sample.</li>
+<li>Negative values generally indicate relatively lower activity or enrichment relative to other samples or the scoring framework.</li>
+<li>The exact scale and interpretation may vary depending on the selected <strong>Method</strong>.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The input expression matrix should contain genes as rows and samples as columns.</li>
+<li>Gene identifiers should be compatible with the selected signature resource and the preprocessing workflow used upstream.</li>
+<li>Different methods may produce score matrices with different value distributions, so results from different methods should not be mixed without caution.</li>
+<li>A larger <strong>Mini gene count</strong> threshold is usually more stringent, but may reduce the number of retained signatures.</li>
+<li>This module is often used after preprocessing steps such as annotation, duplicate-gene handling, and expression normalization.</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+</div>
+<div id="tme-deconvolution" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> TME Deconvolution<a href="functions.html#tme-deconvolution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="deconvolute-tme" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Deconvolute TME<a href="functions.html#deconvolute-tme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Perform tumor microenvironment deconvolution from bulk transcriptome data using multiple supported algorithms. The module estimates immune or stromal cell fractions, enrichment scores, or immune-related indices depending on the selected method.</p>
+<p>This module supports several commonly used deconvolution methods, including <strong>CIBERSORT</strong>, <strong>EPIC</strong>, <strong>quanTIseq</strong>, <strong>xCell</strong>, <strong>ESTIMATE</strong>, <strong>TIMER</strong>, <strong>MCPcounter</strong>, <strong>IPS</strong>, and an <strong>Integration</strong> mode that combines multiple methods into one result table.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+CD8A                  8.421         7.952         6.884         8.103
+EPCAM                 5.238         4.992         5.641         5.310
+COL1A1                9.114         8.773         9.562         9.028
+GZMB                  7.116         6.208         5.774         6.945</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Method</strong> (<code>method</code>) — the deconvolution algorithm used for analysis
+<ul>
+<li><code>CIBERSORT</code>: estimates immune cell fractions using the LM22 reference signature</li>
+<li><code>EPIC</code>: estimates immune and stromal cell fractions, commonly used for tumor RNA-seq data</li>
+<li><code>quanTIseq</code>: estimates immune cell fractions from bulk expression data</li>
+<li><code>xCell</code>: calculates enrichment scores for multiple immune and stromal cell types</li>
+<li><code>ESTIMATE</code>: calculates stromal score, immune score, and ESTIMATE score</li>
+<li><code>TIMER</code>: estimates major immune cell infiltration levels and requires a cancer type</li>
+<li><code>MCPcounter</code>: quantifies immune and stromal cell populations using marker genes</li>
+<li><code>IPS</code>: calculates immunophenoscore-related features</li>
+<li><code>Integration</code>: runs multiple deconvolution methods and merges valid results by sample ID</li>
+</ul></li>
+<li><strong>CIBERSORT parameters</strong>
+<ul>
+<li><strong>Array</strong> (<code>arrays</code>) — whether the input comes from microarray data
+<ul>
+<li><code>True</code>: use microarray-optimized mode</li>
+<li><code>False</code>: use RNA-seq mode</li>
+</ul></li>
+<li><strong>Perm</strong> (<code>perm</code>) — number of permutations used in CIBERSORT
+<ul>
+<li>Example: <code>100</code></li>
+<li>Larger values are slower but generally more stable</li>
+</ul></li>
+<li><strong>Absolute</strong> (<code>absolute.mode</code>) — whether to run CIBERSORT in absolute mode
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Absolute Method</strong> (<code>abs.method</code>) — method used when absolute mode is enabled
+<ul>
+<li><code>Sigscore</code></li>
+<li><code>No Sum-to-1</code></li>
+</ul></li>
+<li><strong>Parallel</strong> (<code>parallel</code>) — whether to enable parallel computation
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul></li>
+<li><strong>EPIC parameters</strong>
+<ul>
+<li><strong>Tumor</strong> (<code>tumor</code>) — whether the samples are tumor samples
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Scale</strong> (<code>scale_mrna</code>) — whether to apply mRNA-content scaling when supported
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul></li>
+<li><strong>quanTIseq parameters</strong>
+<ul>
+<li><strong>Array</strong> (<code>arrays</code>)
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Tumor</strong> (<code>tumor</code>)
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Scale</strong> (<code>scale_mrna</code>)
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul></li>
+<li><strong>xCell parameters</strong>
+<ul>
+<li><strong>Array</strong> (<code>arrays</code>) — whether the input is microarray data
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul></li>
+<li><strong>ESTIMATE parameters</strong>
+<ul>
+<li><strong>Platform</strong> (<code>platform</code>) — platform type used by ESTIMATE
+<ul>
+<li><code>affymetrix</code></li>
+<li><code>agilent</code></li>
+<li><code>illumina</code></li>
+</ul></li>
+</ul></li>
+<li><strong>TIMER parameters</strong>
+<ul>
+<li><strong>Cancer Type</strong> (<code>group_list</code>) — tumor type required by TIMER
+<ul>
+<li>Example: <code>BRCA</code>, <code>STAD</code>, <code>LUAD</code>, <code>LIHC</code></li>
+</ul></li>
+</ul></li>
+<li><strong>Integration parameters</strong>
+<ul>
+<li><strong>Array</strong> (<code>array</code>) — whether the input is microarray data
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Permutations</strong> (<code>permutation</code>) — number of permutations used for CIBERSORT in the integration workflow</li>
+<li><strong>Cancer Type (for TIMER)</strong> (<code>tumor_type</code>) — tumor type used by TIMER inside the integration workflow</li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a gene expression matrix.</li>
+<li>Select the deconvolution <strong>Method</strong>.</li>
+<li>Adjust the method-specific parameters displayed in the left panel.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the deconvolution result table in the <strong>Data</strong> tab.</li>
+<li>Export the results from the <strong>Download</strong> panel.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>           ID         Bcells_EPIC  CAFs_EPIC  CD4_Tcells_EPIC  CD8_Tcells_EPIC
+1     TCGA-BR-6455      0.0151       0.0848          0.0451          9.65e-7
+2     TCGA-BR-7196      0.0642       0.2541          0.0415          1.26e-7
+3     TCGA-BR-8371      0.1562       0.0457          0.0705          0.0078
+4     TCGA-BR-8380      0.0202       0.2044          0.0613          0.0141
+5     TCGA-BR-8592      0.0575       0.2250          0.0792          0.0065</code></pre>
+<p><strong>Output interpretation</strong></p>
+<ul>
+<li>The first column is the sample identifier.</li>
+<li>The remaining columns are estimated cell fractions, enrichment scores, or immune-related scores, depending on the selected method.</li>
+<li>Output column names are usually suffixed by the method name, such as <code>_EPIC</code>, <code>_xCell</code>, <code>_MCPcounter</code>, <code>_TIMER</code>, <code>_quantiseq</code>, <code>_CIBERSORT</code>, or <code>_estimate</code>.</li>
+<li>Different methods produce different types of values, so results from different methods should be interpreted within the context of that method.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li>The input matrix should contain genes as rows and samples as columns.</li>
+<li>Gene symbols are recommended for deconvolution. Ensembl IDs may cause method failure, especially for methods that expect HGNC symbols.</li>
+<li>Input values should usually be non-log expression values suitable for deconvolution workflows.</li>
+<li><strong>CIBERSORT</strong> may take substantially longer than other methods, especially with larger permutation counts.</li>
+<li><strong>TIMER</strong> requires a valid cancer type selection.</li>
+<li><strong>Integration</strong> runs multiple methods and may take much longer than a single-method analysis.</li>
+<li>Some methods estimate relative cell abundance, whereas others produce enrichment or scoring values rather than direct fractions.</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+</div>
+<div id="statistical-analysis" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Statistical Analysis<a href="functions.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="batch-correlation" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Batch Correlation<a href="functions.html#batch-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Calculate correlations between one target variable and multiple selected features in a batch manner. The module supports Pearson or Spearman correlation and returns a summary table for downstream interpretation.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  ID         CD_8_T_effector   DDR      APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO         4.7093        -4.3653   3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP        -1.6480         5.0614  -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ        -2.1915       -11.1568  -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR         0.0528         3.2845   1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT        -0.9226         7.1762  -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Target</strong> (<code>target</code>) — the main variable used as the correlation reference</li>
+<li><strong>Features</strong> (<code>feature</code>) — one or more variables to be correlated with the target</li>
+<li><strong>Method</strong> (<code>method</code>) — correlation method used for analysis
+<ul>
+<li><code>Spearman</code>: rank-based correlation, more robust to non-normal data</li>
+<li><code>Pearson</code>: linear correlation for continuous numeric data</li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a data matrix with samples in rows and variables in columns.</li>
+<li>Select one <strong>Target</strong> variable.</li>
+<li>Select one or more <strong>Features</strong>.</li>
+<li>Optionally click <strong>Select All</strong> to use all available features except the target.</li>
+<li>Choose the correlation <strong>Method</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the result table in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><strong>Example output</strong></p>
+<pre><code>                  sig_names                       p.value     statistic      p.adj    log10pvalue   stars
+1                 IFNG_signature_Ayers_et_al      2.56e-21      0.9050    4.54e-19       20.5912    ****
+2                 TMEscoreA_CIR                   1.25e-18      0.8784    1.10e-16       17.9045    ****
+3                 TIP_Killing_of_cancer_cells_1   5.92e-18      0.8706    3.49e-16       17.2277    ****
+4                 CD8_Rooney_et_al                1.39e-17      0.8660    6.16e-16       16.8563    ****</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="batch-partial-correlation" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Batch Partial Correlation<a href="functions.html#batch-partial-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Compute partial correlations between one target variable and multiple selected features while adjusting for a control variable. The module performs batch analysis and returns a summary table of partial correlation results.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  ID           CD_8_T_effector   DDR      APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO         4.7093        -4.3653   3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP        -1.6480         5.0614  -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ        -2.1915       -11.1568  -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR         0.0528         3.2845   1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT        -0.9226         7.1762  -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Control Variable</strong> (<code>interferenceid</code>) — the variable used for adjustment in partial correlation analysis</li>
+<li><strong>Target Variable</strong> (<code>target</code>) — the main variable to be correlated with all selected features</li>
+<li><strong>Features</strong> (<code>features</code>) — one or more variables tested against the target variable</li>
+<li><strong>Method</strong> (<code>method</code>) — correlation method used for partial correlation
+<ul>
+<li><code>Pearson</code></li>
+<li><code>Spearman</code></li>
+<li><code>Kendall</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a data matrix with samples in rows and variables in columns.</li>
+<li>Select one <strong>Control Variable</strong>.</li>
+<li>Select one <strong>Target Variable</strong>.</li>
+<li>Select one or more <strong>Features</strong>.</li>
+<li>Choose the correlation <strong>Method</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the result table in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                  sig_names                      p.value     statistic      p.adj    log10pvalue  stars
+1                 CD8_c11_Teff_SEMA4A             9.13e-10     -0.7190    9.51e-8        9.0396    ****
+2                 Cytokine_Receptors_Li_et_al     1.07e-9      -0.7170    9.51e-8        8.9710    ****
+3                 IL_iCAF                         9.56e-9      -0.6872    5.67e-7        8.0195    ****
+4                 T_cell_exhaustion_Peng_et_al    1.37e-8      -0.6819    6.12e-7        7.8618    ****</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="batch-survival" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Batch Survival<a href="functions.html#batch-survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Run batch Cox proportional hazards survival analysis for multiple variables in one dataset. The module evaluates each selected feature against survival outcome and returns hazard ratio statistics, confidence intervals, and P values.</p>
+<p>This module is designed for integrated datasets that contain both clinical survival information and quantitative variables, such as signature scores, immune infiltration estimates, pathway scores, or other numeric biomarkers.</p>
+<p><strong>Example input</strong></p>
+<pre><code>          ID           OS_time   OS_status   B_cells_naive   T_cells_CD8   StromalScore   ImmuneScore   ESTIMATEScore
+1         TCGA-3M-AB46   58.83     0           0.0264          0.0290        -0.6766        -1.3235       -1.0774
+2         TCGA-3M-AB47             1           0.1680          0.0617         0.9613         0.0518        0.5563
+3         TCGA-B7-5818   11.87     0           0.0380          0.1248        -0.2425         0.8001        0.2930
+4         TCGA-B7-A5TI   19.83     0           0.1163          0.0653         0.4017        -0.4095        0.0027
+5         TCGA-BR-4187    4.70     1           0.0641          0.0515         2.2367         1.2632        1.9032</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Variables</strong> (<code>variable</code>) — one or more quantitative variables tested in Cox survival analysis
+<ul>
+<li>These usually include signature scores, deconvolution results, pathway scores, or other numeric biomarkers</li>
+</ul></li>
+<li><strong>Status</strong> (<code>status</code>) — the event indicator column used in survival analysis
+<ul>
+<li>Example: <code>OS_status</code></li>
+<li>Typical coding is <code>0</code> for censored and <code>1</code> for event</li>
+</ul></li>
+<li><strong>Time</strong> (<code>time</code>) — the survival time column
+<ul>
+<li>Example: <code>OS_time</code>, <code>RFS_time</code>, or <code>PFS_time</code></li>
+</ul></li>
+<li><strong>best_cutoff</strong> (<code>best_cutoff</code>) — whether to determine an optimal cutoff for grouping before survival analysis
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing both survival information and numeric variables.</li>
+<li>Select one or more <strong>Variables</strong> for batch testing.</li>
+<li>Select the survival <strong>Status</strong> column.</li>
+<li>Select the survival <strong>Time</strong> column.</li>
+<li>Choose whether to enable <strong>best_cutoff</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the Cox regression result table in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>            ID                 P         HR      CI_low_0.95    CI_up_0.95
+1         Neu_05_Peri        0.067993   0.2718      0.0671        1.1010
+2         Neu_06_Per         0.081241   0.3054      0.0805        1.1586
+3         Mono_like          0.083310   0.2961      0.0747        1.1739
+4         Neu_07_APO         0.091479   0.3449      0.1002        1.1874
+5         Chemokine          0.092081   0.2723      0.0600        1.2370</code></pre>
+<p><strong>Output interpretation</strong></p>
+<ul>
+<li><code>ID</code> indicates the tested variable name.</li>
+<li><code>P</code> is the Cox regression P value.</li>
+<li><code>HR</code> is the hazard ratio.</li>
+<li><code>CI_low_0.95</code> and <code>CI_up_0.95</code> are the lower and upper bounds of the 95% confidence interval.</li>
+<li><code>HR &gt; 1</code> suggests higher risk associated with higher variable values.</li>
+<li><code>HR &lt; 1</code> suggests a protective association.</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="batch-wilcoxon" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Batch Wilcoxon<a href="functions.html#batch-wilcoxon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Run batch Wilcoxon rank-sum tests for multiple numeric features between two groups. The module compares feature distributions across a selected binary grouping variable and returns summary statistics for each tested feature.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  ID     cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO    TME1            4.7093       -4.3653    3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP    TME2           -1.6480        5.0614   -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ    TME2           -2.1915      -11.1568   -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR    TME3            0.0528        3.2845    1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT    TME1           -0.9226        7.1762   -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Group(=2)</strong> (<code>target</code>) — the grouping variable with exactly two categories
+<ul>
+<li>Example: treatment group, subtype, sex, or response group</li>
+</ul></li>
+<li><strong>Features</strong> (<code>feature</code>) — one or more numeric variables tested between the two groups
+<ul>
+<li>These usually include signature scores, deconvolution results, pathway scores, or other quantitative features</li>
+</ul></li>
+<li><strong>Feature Manipulation</strong> (<code>feature_manipulation</code>) — whether to perform internal feature processing before statistical testing
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing one two-group variable and multiple numeric features.</li>
+<li>Select the <strong>Group(=2)</strong> column.</li>
+<li>Select one or more <strong>Features</strong>.</li>
+<li>Choose whether to enable <strong>Feature Manipulation</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the result table in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                sig_names      p.value      TME1       TME2       TME3      mean       p.adj      log10pvalue   stars
+1               CD8_c12_Trm      2.05e-9   -3.3378   -18.1813    21.5191    4.0193     3.51e-8       8.6879      ****
+2                CD4_c3_Tfh      2.05e-9    0.1222    -7.4525     7.3304    0.5722     3.51e-8       8.6879      ****
+3               DC_03_LAMP3      2.05e-9    0.0961    -6.2516     6.1555    0.4846     3.51e-8       8.6879      ****
+4               Neu_05_ELL2      2.19e-9    0.5149    -4.8792     4.3643    0.0608     3.51e-8       8.6603      ****</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="batch-kruskal-wallis" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Batch Kruskal-Wallis<a href="functions.html#batch-kruskal-wallis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Run batch Kruskal–Wallis tests for multiple numeric features across three or more groups. The module compares feature distributions among selected categories and returns summary statistics for each tested feature.</p>
+<p><strong>Example input</strong></p>
+<pre><code>              ID         cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO    TME1            4.7093       -4.3653    3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP    TME2           -1.6480        5.0614   -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ    TME2           -2.1915      -11.1568   -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR    TME3            0.0528        3.2845    1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT    TME1           -0.9226        7.1762   -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Group(&gt;2)</strong> (<code>group</code>) — the grouping variable with three or more categories
+<ul>
+<li>Example: molecular subtype, stage group, or histological class</li>
+</ul></li>
+<li><strong>Features</strong> (<code>feature</code>) — one or more numeric variables tested across the groups
+<ul>
+<li>These usually include signature scores, deconvolution results, pathway scores, or other quantitative features</li>
+</ul></li>
+<li><strong>Feature Manipulation</strong> (<code>feature_manipulation</code>) — whether to perform internal feature processing before statistical testing
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing one multi-group variable and multiple numeric features.</li>
+<li>Select the <strong>Group(&gt;2)</strong> column.</li>
+<li>Select one or more <strong>Features</strong>.</li>
+<li>Choose whether to enable <strong>Feature Manipulation</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the result table in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                sig_names      p.value      TME1       TME2       TME3      mean       p.adj      log10pvalue   stars
+1               CD8_c12_Trm      2.05e-9   -3.3378   -18.1813    21.5191    4.0193     3.51e-8       8.6879      ****
+2                CD4_c3_Tfh      2.05e-9    0.1222    -7.4525     7.3304    0.5722     3.51e-8       8.6879      ****
+3               DC_03_LAMP3      2.05e-9    0.0961    -6.2516     6.1555    0.4846     3.51e-8       8.6879      ****
+4               Neu_05_ELL2      2.19e-9    0.5149    -4.8792     4.3643    0.0608     3.51e-8       8.6603      ****</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+</div>
+<div id="tme-interaction" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> TME Interaction<a href="functions.html#tme-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tme-clustering" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> TME Clustering<a href="functions.html#tme-clustering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Perform tumor microenvironment clustering analysis based on selected numeric features. The module groups samples into clusters across a specified range of cluster numbers, returns the clustering result table, and optionally displays a heatmap grouped by cluster.</p>
+<p><strong>Example input</strong></p>
+<pre><code>               ID            CD_8_T_effector   DDR      APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO         4.7093        -4.3653   3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP        -1.6480         5.0614  -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ        -2.1915       -11.1568  -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR         0.0528         3.2845   1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT        -0.9226         7.1762  -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Features</strong> (<code>features</code>) — one or more numeric variables used for clustering
+<ul>
+<li>These usually include TME-related scores, immune infiltration estimates, or other quantitative signatures</li>
+</ul></li>
+<li><strong>Min Clusters</strong> (<code>min_nc</code>) — minimum number of clusters evaluated during clustering
+<ul>
+<li>Example: <code>2</code></li>
+</ul></li>
+<li><strong>Max Clusters</strong> (<code>max.nc</code>) — maximum number of clusters evaluated during clustering
+<ul>
+<li>Example: <code>6</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing sample IDs and numeric TME-related features.</li>
+<li>Select one or more <strong>Features</strong> for clustering.</li>
+<li>Set the <strong>Min Clusters</strong> value.</li>
+<li>Set the <strong>Max Clusters</strong> value.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the clustering heatmap in the <strong>Plot</strong> tab.</li>
+<li>View the clustered data in the <strong>Data</strong> tab.</li>
+<li>View the cluster size summary in the <strong>Cluster</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>              ID         cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO    TME1            4.7093       -4.3653    3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP    TME2           -1.6480        5.0614   -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ    TME2           -2.1915      -11.1568   -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR    TME3            0.0528        3.2845    1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT    TME1           -0.9226        7.1762   -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>The result plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="ligandreceptor-interaction" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Ligand–Receptor Interaction<a href="functions.html#ligandreceptor-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quantify ligand-receptor interactions in the tumor microenvironment from bulk transcriptome data. The module calculates ligand-receptor interaction scores and returns a result table for downstream analysis.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  TCGA-3M-AB46  TCGA-3M-AB47  TCGA-B7-5818  TCGA-B7-A5TI
+ENSG00000112715      120.0         98.0          135.0         142.0
+ENSG00000153563       45.0         52.0           39.0          41.0
+ENSG00000169429      310.0        288.0          356.0         330.0
+ENSG00000125347       22.0         18.0           31.0          27.0</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Data Type</strong> (<code>data_type</code>) — the expression data format used for ligand-receptor analysis
+<ul>
+<li><code>Count</code></li>
+<li><code>TPM</code></li>
+</ul></li>
+<li><strong>ID Type</strong> (<code>id_type</code>) — the gene identifier format used in the input matrix
+<ul>
+<li><code>Ensembl</code></li>
+<li><code>Symbol</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload an expression matrix.</li>
+<li>Select the <strong>Data Type</strong>.</li>
+<li>Select the <strong>ID Type</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the ligand-receptor interaction result table in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>              ID           ADM_CALCRL   ADM_MRGPRX2   ADM_RAMP2   ADM2_CALCRL   ADM2_RAMP1
+1         TCGA-BR-6455      3.0609        0.0000       3.0609       2.6353        2.6353
+2         TCGA-BR-7196      3.8971        0.0000       3.8971       1.2811        1.2811
+3         TCGA-BR-8371      2.4770        0.0000       3.2104       1.8195        1.8195
+4         TCGA-BR-8380      3.7969        0.0000       3.7969       2.1996        2.1996
+5         TCGA-BR-8592      3.8942        0.1866       3.9470       3.1062        3.1062</code></pre>
+</div>
+</div>
+<div id="visualization" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Visualization<a href="functions.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="heatmap" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Heatmap<a href="functions.html#heatmap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Draw a customizable heatmap for selected features across samples and group the samples by a chosen annotation column. The module is suitable for visualizing signature scores, immune-related variables, pathway scores, or other numeric features across categorical sample groups.</p>
+<p><strong>Example input</strong></p>
+<pre><code>              ID         cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO    TME1            4.7093       -4.3653    3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP    TME2           -1.6480        5.0614   -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ    TME2           -2.1915      -11.1568   -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR    TME3            0.0528        3.2845    1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT    TME1           -0.9226        7.1762   -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Groups</strong> (<code>group</code>) — the categorical annotation column used to group samples in the heatmap
+<ul>
+<li>Example: subtype, treatment group, response group, or stage</li>
+</ul></li>
+<li><strong>Features</strong> (<code>features</code>) — one or more numeric variables displayed in the heatmap
+<ul>
+<li>These usually include signature scores, deconvolution results, pathway scores, or other quantitative features</li>
+</ul></li>
+<li><strong>Auto-select</strong> (<code>surv_top_n</code>) — automatically select the top N features when this module is linked to an upstream ranking result
+<ul>
+<li>Example: <code>20</code></li>
+</ul></li>
+<li><strong>Scale</strong> (<code>scale</code>) — whether to scale feature values before plotting
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset palette index for the heatmap
+<ul>
+<li><code>1</code></li>
+<li><code>2</code></li>
+<li><code>3</code></li>
+<li><code>4</code></li>
+</ul></li>
+<li><strong>Palette Group</strong> (<code>palette_group</code>) — preset color palette for sample group annotations
+<ul>
+<li><code>nrc</code></li>
+<li><code>jama</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><strong>Colors Group</strong> (<code>cols_group</code>) — custom colors for sample group annotations
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette Group</strong></li>
+</ul></li>
+<li><strong>Colors Heatmap</strong> (<code>cols_heatmap</code>) — custom colors for heatmap low-mid-high values
+<ul>
+<li>Provide at least 3 colors separated by commas</li>
+</ul></li>
+<li><strong>Row Font Size</strong> (<code>size_row</code>) — font size of feature labels in the heatmap
+<ul>
+<li>Example: <code>8</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing one grouping column and multiple numeric features.</li>
+<li>Select the <strong>Groups</strong> column.</li>
+<li>Select one or more <strong>Features</strong>.</li>
+<li>Optionally set <strong>Auto-select</strong> if the module is connected to an upstream ranked result.</li>
+<li>Choose whether to apply <strong>Scale</strong>.</li>
+<li>Select a preset <strong>Palette</strong> and <strong>Palette Group</strong>, or provide custom colors in <strong>Colors Group</strong> and <strong>Colors Heatmap</strong>.</li>
+<li>Adjust <strong>Row Font Size</strong> if needed.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the heatmap in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/sig_heatmap.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The heatmap can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="box-plot" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Box Plot<a href="functions.html#box-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a customizable boxplot for one selected numeric signature or variable across sample groups. The module supports optional scaling, custom colors, jittered points, and P-value display for group comparisons.</p>
+<p><strong>Example input</strong></p>
+<pre><code>              ID         cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO    TME1            4.7093       -4.3653    3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP    TME2           -1.6480        5.0614   -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ    TME2           -2.1915      -11.1568   -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR    TME3            0.0528        3.2845    1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT    TME1           -0.9226        7.1762   -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Groups</strong> (<code>variable</code>) — the categorical grouping column used on the x-axis
+<ul>
+<li>Example: subtype, response group, treatment group, or stage</li>
+</ul></li>
+<li><strong>Signature</strong> (<code>signature</code>) — the numeric variable displayed on the y-axis
+<ul>
+<li>Example: signature score, immune infiltration estimate, or pathway score</li>
+</ul></li>
+<li><strong>Scale</strong> (<code>scale</code>) — whether to scale the selected signature before plotting
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset color palette for group display
+<ul>
+<li><code>nrc</code></li>
+<li><code>jama</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom group colors
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette</strong></li>
+</ul></li>
+<li><strong>Show Jitter</strong> (<code>jitter</code>) — whether to display sample points on top of boxplots
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Show Pairwise P-value</strong> (<code>show_pairwise_p</code>) — whether to display pairwise comparison P values
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Show Overall P-value</strong> (<code>show_overall_p</code>) — whether to display the overall group comparison P value
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>P-value Size</strong> (<code>size_of_pvalue</code>) — font size of displayed P values
+<ul>
+<li>Example: <code>6</code></li>
+</ul></li>
+<li><strong>Point Size</strong> (<code>point_size</code>) — size of jittered sample points
+<ul>
+<li>Example: <code>5</code></li>
+</ul></li>
+<li><strong>Font Size</strong> (<code>size_of_font</code>) — font size of plot text
+<ul>
+<li>Example: <code>10</code></li>
+</ul></li>
+<li><strong>X-axis Text Angle</strong> (<code>angle_x_text</code>) — rotation angle of x-axis labels
+<ul>
+<li>Example: <code>0</code></li>
+</ul></li>
+<li><strong>X-axis Text Justification</strong> (<code>hjust</code>) — horizontal justification of rotated x-axis labels
+<ul>
+<li>Example: <code>0.5</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing one grouping column and one or more numeric variables.</li>
+<li>Select the <strong>Groups</strong> column.</li>
+<li>Select the <strong>Signature</strong> column.</li>
+<li>Choose whether to apply <strong>Scale</strong>.</li>
+<li>Select a preset <strong>Palette</strong> or provide custom colors in <strong>Colors</strong>.</li>
+<li>Choose whether to show jitter points and P values.</li>
+<li>Adjust point size, font size, and x-axis label settings if needed.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the boxplot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/sig_box.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The heatmap can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="percentage-bar-plot" class="section level3 hasAnchor" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Percentage Bar Plot<a href="functions.html#percentage-bar-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Plot a percentage bar chart for two categorical variables. The module summarizes the distribution of one category within another, supports custom colors, optional frequency labels, summary annotations, and coordinate flipping, and is suitable for comparing proportions across groups.</p>
+<p><strong>Example input</strong></p>
+<pre><code>          ID           Subtype   Lauren       MSI   EBV   Hpylori
+1         TCGA-3M-AB46   GS        Mixed        0     0     0
+2         TCGA-3M-AB47   CIN       Mixed        0     0     0
+3         TCGA-B7-5818   EBV       Diffuse      0     1     0
+4         TCGA-B7-A5TI   MSI       Diffuse      1     0     0
+5         TCGA-BR-4187   GS        Mixed        0     0     0</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><strong>X Variable</strong> (<code>x</code>) — the categorical variable displayed on the x-axis</p>
+<ul>
+<li>Example: subtype, stage, response group, or molecular class</li>
+</ul></li>
+<li><p><strong>Y Variable</strong> (<code>y</code>) — the categorical variable used for stacked proportion display</p>
+<ul>
+<li>Example: Lauren type, MSI status, EBV status, or sex</li>
+</ul></li>
+<li><p><strong>Palette</strong> (<code>palette</code>) — preset color palette for category display</p>
+<ul>
+<li><code>nrc</code></li>
+<li><code>jama</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><p><strong>Colors</strong> (<code>color</code>) — custom colors for categories</p>
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette</strong></li>
+</ul></li>
+<li><p><strong>Title</strong> (<code>title</code>) — optional plot title</p></li>
+<li><p><strong>Axis Angle</strong> (<code>axis_angle</code>) — rotation angle of x-axis labels</p>
+<ul>
+<li>Example: <code>0</code></li>
+</ul></li>
+<li><p><strong>Coord Flip</strong> (<code>coord_flip</code>) — whether to flip the plot coordinates</p>
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><p><strong>Add Frequency</strong> (<code>add_Freq</code>) — whether to display percentage or frequency labels on the bars</p>
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><p><strong>Freq Font Size</strong> (<code>size_freq</code>) — font size of frequency labels</p>
+<ul>
+<li>Example: <code>8</code></li>
+</ul></li>
+<li><p><strong>Legend Text Size</strong> (<code>legend.size.text</code>) — font size of legend labels</p>
+<ul>
+<li>Example: <code>10</code></li>
+</ul></li>
+<li><p><strong>Add Summary</strong> (<code>add_sum</code>) — whether to add summary annotations for each bar</p>
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing categorical annotation variables.</li>
+<li>Select the <strong>X Variable</strong>.</li>
+<li>Select the <strong>Y Variable</strong>.</li>
+<li>Choose a preset <strong>Palette</strong> or provide custom colors in <strong>Colors</strong>.</li>
+<li>Optionally enter a plot <strong>Title</strong>.</li>
+<li>Adjust axis angle, coordinate direction, label size, and legend size if needed.</li>
+<li>Choose whether to show frequency labels and summary annotations.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the percentage bar plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/percent_bar_plot.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="cell-bar-plot" class="section level3 hasAnchor" number="2.6.4">
+<h3><span class="header-section-number">2.6.4</span> Cell Bar Plot<a href="functions.html#cell-bar-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Visualize cell composition or immune infiltration profiles across samples using a stacked bar plot. The module is suitable for deconvolution results such as CIBERSORT, EPIC, and quanTIseq, and supports custom colors, sample number control, legend position, and coordinate flipping.</p>
+<p><strong>Example input</strong></p>
+<pre><code>               ID         B_cells_naive   T_cells_CD8   NK_cells_resting   Macrophages_M0   Macrophages_M2   Fibroblasts
+1         TCGA-3M-AB46      0.0264          0.0290         0.0455             0.2464           0.1099          -0.3167
+2         TCGA-3M-AB47      0.1680          0.0617         0.0601             0.0357           0.1241           1.1450
+3         TCGA-B7-5818      0.0380          0.1248         0.0321             0.1035           0.2062          -0.0338
+4         TCGA-B7-A5TI      0.1163          0.0653         0.0504             0.0978           0.2043           0.6185
+5         TCGA-BR-4187      0.0641          0.0515         0.0530             0.0000           0.2551           1.8778</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>ID column</strong> (<code>id</code>) — the sample identifier column
+<ul>
+<li>Example: <code>ID</code></li>
+</ul></li>
+<li><strong>Features</strong> (<code>features</code>) — one or more cell-fraction or infiltration-related columns to display
+<ul>
+<li>These usually include deconvolution-derived cell fractions or abundance estimates</li>
+</ul></li>
+<li><strong>Sample Number</strong> (<code>n</code>) — number of samples displayed in the plot
+<ul>
+<li>Example: <code>10</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom colors for cell types
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+</ul></li>
+<li><strong>Title</strong> (<code>title</code>) — plot title
+<ul>
+<li>Default example: <code>Cell Fraction</code></li>
+</ul></li>
+<li><strong>Legend Position</strong> (<code>legend.position</code>) — position of the legend
+<ul>
+<li><code>bottom</code></li>
+<li><code>top</code></li>
+<li><code>left</code></li>
+<li><code>right</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset palette index
+<ul>
+<li><code>1</code></li>
+<li><code>2</code></li>
+<li><code>3</code></li>
+<li><code>4</code></li>
+</ul></li>
+<li><strong>Coord Flip</strong> (<code>coord_filp</code>) — whether to flip the plot orientation
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a deconvolution result matrix or other cell-composition dataset.</li>
+<li>Enter the sample <strong>ID column</strong> name.</li>
+<li>Select one or more infiltration <strong>Features</strong>.</li>
+<li>Set the <strong>Sample Number</strong> to control how many samples are displayed.</li>
+<li>Optionally provide custom <strong>Colors</strong>.</li>
+<li>Enter a plot <strong>Title</strong> if needed.</li>
+<li>Select <strong>Legend Position</strong>, <strong>Palette</strong>, and whether to enable <strong>Coord Flip</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the stacked bar plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/cell_bar_plot.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="forest-plot" class="section level3 hasAnchor" number="2.6.5">
+<h3><span class="header-section-number">2.6.5</span> Forest Plot<a href="functions.html#forest-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Produce a forest plot from batch survival analysis results. The module visualizes hazard ratios, confidence intervals, and P values for selected signatures or variables, and is suitable for summarizing survival-associated features.</p>
+<p><strong>Example input</strong></p>
+<pre><code>          ID               P         HR      lower_0.95   upper_0.95
+1         TMEscore_plus   0.0031    1.8425      1.2254        2.7710
+2         StromalScore    0.0184    1.5362      1.0738        2.1980
+3         ImmuneScore     0.0412    0.7124      0.5148        0.9858
+4         ESTIMATEScore   0.0097    1.6841      1.1296        2.5110
+5         CD8_T_cells     0.0275    0.6483      0.4412        0.9527</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Signature</strong> (<code>signature</code>) — the column containing signature or feature names
+<ul>
+<li>Example: <code>ID</code></li>
+</ul></li>
+<li><strong>P-value</strong> (<code>pvalue</code>) — the column containing P values
+<ul>
+<li>Example: <code>P</code></li>
+</ul></li>
+<li><strong>HR</strong> (<code>HR</code>) — the column containing hazard ratios
+<ul>
+<li>Example: <code>HR</code></li>
+</ul></li>
+<li><strong>Lower CI (95%)</strong> (<code>CI_low_0.95</code>) — the column containing the lower bound of the 95% confidence interval
+<ul>
+<li>Example: <code>lower_0.95</code></li>
+</ul></li>
+<li><strong>Upper CI (95%)</strong> (<code>CI_up_0.95</code>) — the column containing the upper bound of the 95% confidence interval
+<ul>
+<li>Example: <code>upper_0.95</code></li>
+</ul></li>
+<li><strong>Signature Number</strong> (<code>n</code>) — the number of top signatures or variables to display
+<ul>
+<li>Example: <code>10</code></li>
+</ul></li>
+<li><strong>Text Size</strong> (<code>text.size</code>) — font size used in the forest plot
+<ul>
+<li>Example: <code>13</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom colors for forest plot elements
+<ul>
+<li>Enter at least 2 color names or hex codes separated by commas</li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a batch survival result table.</li>
+<li>Enter the column name for <strong>Signature</strong>.</li>
+<li>Enter the column names for <strong>P-value</strong>, <strong>HR</strong>, <strong>Lower CI (95%)</strong>, and <strong>Upper CI (95%)</strong>.</li>
+<li>Set the <strong>Signature Number</strong> to control how many results are displayed.</li>
+<li>Adjust <strong>Text Size</strong> if needed.</li>
+<li>Optionally provide custom <strong>Colors</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the forest plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/sig_forest.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="correlation-plot" class="section level3 hasAnchor" number="2.6.6">
+<h3><span class="header-section-number">2.6.6</span> Correlation Plot<a href="functions.html#correlation-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Compute and visualize the correlation between two variables with optional subtype grouping and regression display. The module supports Pearson, Spearman, and Kendall correlation methods, and can generate a scatter plot with fitted line and correlation statistics.</p>
+<p><strong>Example input</strong></p>
+<pre><code>              ID         cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO    TME1            4.7093       -4.3653    3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP    TME2           -1.6480        5.0614   -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ    TME2           -2.1915      -11.1568   -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR    TME3            0.0528        3.2845    1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT    TME1           -0.9226        7.1762   -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><strong>Matrix</strong> (<code>is.matrix</code>) — whether the input is treated as a pure matrix</p>
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><p><strong>Variable 1</strong> (<code>var1</code>) — the first numeric variable used in the correlation analysis</p></li>
+<li><p><strong>Variable 2</strong> (<code>var2</code>) — the second numeric variable used in the correlation analysis</p></li>
+<li><p><strong>Subtype</strong> (<code>subtype</code>) — optional grouping variable used to color points by category</p>
+<ul>
+<li>Example: subtype, response group, or treatment group</li>
+</ul></li>
+<li><p><strong>Scale</strong> (<code>scale</code>) — whether to scale the selected variables before analysis</p>
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><p><strong>Method</strong> (<code>method</code>) — correlation method</p>
+<ul>
+<li><code>Pearson</code></li>
+<li><code>Spearman</code></li>
+<li><code>Kendall</code></li>
+</ul></li>
+<li><p><strong>Show Result</strong> (<code>show_cor_result</code>) — whether to display correlation statistics on the plot</p>
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><p><strong>Color Line(optional)</strong> (<code>col_line</code>) — color of the fitted regression line</p>
+<ul>
+<li>Example: <code>black</code> or <code>#E69F00</code></li>
+</ul></li>
+<li><p><strong>Subtype Colors</strong> (<code>color_subtype</code>) — custom colors for subtype groups</p>
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+</ul></li>
+<li><p><strong>Title(optional)</strong> (<code>title</code>) — plot title</p></li>
+<li><p><strong>Title Size(optional)</strong> (<code>title_size</code>) — plot title size</p>
+<ul>
+<li>Example: <code>1.5</code></li>
+</ul></li>
+<li><p><strong>Point Size</strong> (<code>point_size</code>) — size of scatter points</p>
+<ul>
+<li>Example: <code>4</code></li>
+</ul></li>
+<li><p><strong>Point Transparency</strong> (<code>alpha</code>) — transparency of scatter points</p>
+<ul>
+<li>Example: <code>0.5</code></li>
+</ul></li>
+<li><p><strong>Text Size</strong> (<code>text_size</code>) — size of plot text</p>
+<ul>
+<li>Example: <code>10</code></li>
+</ul></li>
+<li><p><strong>Axis Label Angle</strong> (<code>axis_angle</code>) — rotation angle of axis labels</p>
+<ul>
+<li>Example: <code>0</code></li>
+</ul></li>
+<li><p><strong>Hjust</strong> (<code>hjust</code>) — horizontal justification of rotated labels</p>
+<ul>
+<li>Example: <code>0</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing numeric variables for correlation analysis.</li>
+<li>Choose whether the input should be treated as a <strong>Matrix</strong>.</li>
+<li>Select <strong>Variable 1</strong> and <strong>Variable 2</strong>.</li>
+<li>Optionally select a <strong>Subtype</strong> column for grouped coloring.</li>
+<li>Choose whether to apply <strong>Scale</strong>.</li>
+<li>Select the correlation <strong>Method</strong>.</li>
+<li>Choose whether to show correlation statistics on the plot.</li>
+<li>Optionally set the regression line color, subtype colors, and plot title.</li>
+<li>Adjust point size, transparency, text size, and axis label settings if needed.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the scatter plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/get_cor.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="correlation-matrix" class="section level3 hasAnchor" number="2.6.7">
+<h3><span class="header-section-number">2.6.7</span> Correlation Matrix<a href="functions.html#correlation-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Calculate and visualize a correlation matrix between two selected feature sets. The module supports Pearson, Spearman, and Kendall correlation methods, optional scaling, custom heatmap colors, significance annotation, and correlation-based filling.</p>
+<p><strong>Example input</strong></p>
+<pre><code>              ID         cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint   CellCycle_Reg
+1         TCGA-2F-A9KO    TME1            4.7093       -4.3653    3.1724         4.5259           -1.3468
+2         TCGA-2F-A9KP    TME2           -1.6480        5.0614   -1.3928        -1.4447            3.2313
+3         TCGA-2F-A9KQ    TME2           -2.1915      -11.1568   -1.8568        -1.7691            0.6771
+4         TCGA-2F-A9KR    TME3            0.0528        3.2845    1.6877        -0.2206           -1.3867
+5         TCGA-2F-A9KT    TME1           -0.9226        7.1762   -1.6106        -1.0915           -1.1749</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Matrix</strong> (<code>is.matrix</code>) — whether the input is treated as a pure matrix
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Features Set1</strong> (<code>feas1</code>) — the first group of variables used in the correlation matrix
+<ul>
+<li>One or more numeric variables</li>
+</ul></li>
+<li><strong>Features Set2</strong> (<code>feas2</code>) — the second group of variables used in the correlation matrix
+<ul>
+<li>One or more numeric variables</li>
+</ul></li>
+<li><strong>Heatmap Colors</strong> (<code>cols</code>) — colors used for the correlation heatmap
+<ul>
+<li>Provide 2 or 3 colors separated by commas</li>
+<li><code>2</code> colors: low/high, with white used as the midpoint</li>
+<li><code>3</code> colors: low/mid/high</li>
+</ul></li>
+<li><strong>Scale</strong> (<code>scale</code>) — whether to scale variables before correlation analysis
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Method</strong> (<code>method</code>) — correlation method
+<ul>
+<li><code>Pearson</code></li>
+<li><code>Spearman</code></li>
+<li><code>Kendall</code></li>
+</ul></li>
+<li><strong>Font Size Star</strong> (<code>font.size.star</code>) — font size of significance markers
+<ul>
+<li>Example: <code>8</code></li>
+</ul></li>
+<li><strong>Font Size</strong> (<code>font.size</code>) — overall font size of the matrix plot
+<ul>
+<li>Example: <code>15</code></li>
+</ul></li>
+<li><strong>Fill by cor</strong> (<code>fill_by_cor</code>) — whether to fill tiles directly by correlation values
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing numeric variables for correlation analysis.</li>
+<li>Choose whether the input should be treated as a <strong>Matrix</strong>.</li>
+<li>Select one or more variables for <strong>Features Set1</strong>.</li>
+<li>Select one or more variables for <strong>Features Set2</strong>.</li>
+<li>Optionally provide custom <strong>Heatmap Colors</strong>.</li>
+<li>Choose whether to apply <strong>Scale</strong>.</li>
+<li>Select the correlation <strong>Method</strong>.</li>
+<li>Adjust font size settings if needed.</li>
+<li>Choose whether to enable <strong>Fill by cor</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the correlation matrix in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/get_cor_matrix.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="survival-plots" class="section level3 hasAnchor" number="2.6.8">
+<h3><span class="header-section-number">2.6.8</span> Survival Plots<a href="functions.html#survival-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Generate Kaplan–Meier survival plots for one selected signature or numeric variable. The module automatically creates multiple survival grouping strategies, including best cutoff, two-group comparison, and three-group comparison, and combines them into one figure.</p>
+<p><strong>Example input</strong></p>
+<pre><code>           ID           OS_time   OS_status   TMEscore_plus   StromalScore   ImmuneScore
+1         TCGA-3M-AB46   58.83     0           -1.2456         -0.6766        -1.3235
+2         TCGA-3M-AB47   12.40     1            0.8452          0.9613         0.0518
+3         TCGA-B7-5818   11.87     0            0.1264         -0.2425         0.8001
+4         TCGA-B7-A5TI   19.83     0            0.4028          0.4017        -0.4095
+5         TCGA-BR-4187    4.70     1            1.7631          2.2367         1.2632</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Signature</strong> (<code>signature</code>) — the numeric variable used for survival stratification
+<ul>
+<li>Example: signature score, pathway score, or immune-related feature</li>
+</ul></li>
+<li><strong>Status</strong> (<code>status</code>) — the event indicator column used in survival analysis
+<ul>
+<li>Example: <code>OS_status</code></li>
+</ul></li>
+<li><strong>Time</strong> (<code>time</code>) — the survival time column
+<ul>
+<li>Example: <code>OS_time</code></li>
+</ul></li>
+<li><strong>ID</strong> (<code>ID</code>) — the sample identifier column
+<ul>
+<li>Default example: <code>ID</code></li>
+</ul></li>
+<li><strong>Time Type</strong> (<code>time_type</code>) — the time unit of the survival column
+<ul>
+<li><code>Month</code></li>
+<li><code>Day</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset color palette for survival groups
+<ul>
+<li><code>nrc</code></li>
+<li><code>jama</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom colors for survival groups
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette</strong></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing survival information and one or more numeric signatures.</li>
+<li>Select the <strong>Signature</strong> column.</li>
+<li>Select the survival <strong>Status</strong> column.</li>
+<li>Select the survival <strong>Time</strong> column.</li>
+<li>Enter the sample <strong>ID</strong> column name if needed.</li>
+<li>Choose the correct <strong>Time Type</strong>.</li>
+<li>Select a preset <strong>Palette</strong> or provide custom <strong>Colors</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the combined Kaplan–Meier plots in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/sig_surv_plot.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="survival-group-plot" class="section level3 hasAnchor" number="2.6.9">
+<h3><span class="header-section-number">2.6.9</span> Survival Group Plot<a href="functions.html#survival-group-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="surv_group" class="section level3 hasAnchor" number="2.6.10">
+<h3><span class="header-section-number">2.6.10</span> Surv_group<a href="functions.html#surv_group" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Generate Kaplan–Meier survival plots for a categorical grouping variable. The module compares survival outcomes across predefined groups and is suitable for subgroup-based survival analysis such as molecular subtype, treatment class, or clinical category.</p>
+<p><strong>Example input</strong></p>
+<pre><code>          ID           Subtype   OS_time   OS_status
+1         TCGA-3M-AB46   GS        58.83     0
+2         TCGA-3M-AB47   CIN       12.40     1
+3         TCGA-B7-5818   EBV       11.87     0
+4         TCGA-B7-A5TI   MSI       19.83     0
+5         TCGA-BR-4187   GS         4.70     1</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>ID column</strong> (<code>ID</code>) — the sample identifier column
+<ul>
+<li>Default example: <code>ID</code></li>
+</ul></li>
+<li><strong>Target Group</strong> (<code>target_group</code>) — the categorical grouping variable used for Kaplan–Meier comparison
+<ul>
+<li>Example: subtype, response group, treatment group, or stage</li>
+</ul></li>
+<li><strong>Status</strong> (<code>status</code>) — the event indicator column used in survival analysis
+<ul>
+<li>Example: <code>OS_status</code></li>
+</ul></li>
+<li><strong>Time</strong> (<code>time</code>) — the survival time column
+<ul>
+<li>Example: <code>OS_time</code></li>
+</ul></li>
+<li><strong>Time Type</strong> (<code>time_type</code>) — the time unit of the survival column
+<ul>
+<li><code>Months</code></li>
+<li><code>Days</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset color palette for survival groups
+<ul>
+<li><code>nrc</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>jama</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom colors for survival groups
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette</strong></li>
+</ul></li>
+<li><strong>Font Size (Table)</strong> (<code>font.size.table</code>) — font size of the risk table
+<ul>
+<li>Example: <code>5</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing one grouping column and survival information.</li>
+<li>Enter the sample <strong>ID column</strong> name if needed.</li>
+<li>Select the <strong>Target Group</strong> column.</li>
+<li>Select the survival <strong>Status</strong> column.</li>
+<li>Select the survival <strong>Time</strong> column.</li>
+<li>Choose the correct <strong>Time Type</strong>.</li>
+<li>Select a preset <strong>Palette</strong> or provide custom <strong>Colors</strong>.</li>
+<li>Adjust <strong>Font Size (Table)</strong> if needed.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the Kaplan–Meier plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/surv_group.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="time-roc-curves" class="section level3 hasAnchor" number="2.6.11">
+<h3><span class="header-section-number">2.6.11</span> Time ROC Curves<a href="functions.html#time-roc-curves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Generate time-dependent ROC curves with AUC values for one to three selected variables. The module is suitable for evaluating and comparing the prognostic performance of signatures, scores, or biomarkers at a specific survival time point.</p>
+<p><strong>Example input</strong></p>
+<pre><code>          ID           OS_time   OS_status   TMEscore_plus   StromalScore   ImmuneScore
+1         TCGA-3M-AB46   58.83     0           -1.2456         -0.6766        -1.3235
+2         TCGA-3M-AB47   12.40     1            0.8452          0.9613         0.0518
+3         TCGA-B7-5818   11.87     0            0.1264         -0.2425         0.8001
+4         TCGA-B7-A5TI   19.83     0            0.4028          0.4017        -0.4095
+5         TCGA-BR-4187    4.70     1            1.7631          2.2367         1.2632</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Variables (Max 3)</strong> (<code>vars</code>) — one to three numeric variables used to build time-dependent ROC curves
+<ul>
+<li>Example: signature scores, pathway scores, or biomarkers</li>
+</ul></li>
+<li><strong>Status</strong> (<code>status</code>) — the event indicator column used in survival analysis
+<ul>
+<li>Example: <code>OS_status</code></li>
+</ul></li>
+<li><strong>Time</strong> (<code>time</code>) — the survival time column
+<ul>
+<li>Example: <code>OS_time</code></li>
+</ul></li>
+<li><strong>Time Point</strong> (<code>time_point</code>) — the survival time point used for ROC evaluation
+<ul>
+<li>Example: <code>12</code></li>
+</ul></li>
+<li><strong>Time Type</strong> (<code>time_type</code>) — the time unit of the survival column
+<ul>
+<li><code>Month</code></li>
+<li><code>Day</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset color palette for ROC curves
+<ul>
+<li><code>nrc</code></li>
+<li><code>jama</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom colors for ROC curves
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette</strong></li>
+</ul></li>
+<li><strong>Title</strong> (<code>main</code>) — optional plot title</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing survival information and one or more numeric variables.</li>
+<li>Select one to three <strong>Variables</strong>.</li>
+<li>Select the survival <strong>Status</strong> column.</li>
+<li>Select the survival <strong>Time</strong> column.</li>
+<li>Set the <strong>Time Point</strong> for ROC evaluation.</li>
+<li>Choose the correct <strong>Time Type</strong>.</li>
+<li>Select a preset <strong>Palette</strong> or provide custom <strong>Colors</strong>.</li>
+<li>Optionally enter a plot <strong>Title</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the time-dependent ROC plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/roc_time.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="signature-roc-curves" class="section level3 hasAnchor" number="2.6.12">
+<h3><span class="header-section-number">2.6.12</span> Signature ROC Curves<a href="functions.html#signature-roc-curves" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Generate ROC curves for one or more selected variables against a binary outcome. The module supports multiple ROC curves in one plot, optional curve comparison, smoothing, custom colors, and transparency adjustment.</p>
+<p><strong>Example input</strong></p>
+<pre><code>             ID          OS_status   cluster    CD_8_T_effector      DDR       APM    Immune_Checkpoint
+1         TCGA-2F-A9KO      0           TME1            4.7093       -4.3653    3.1724         4.5259
+2         TCGA-2F-A9KP      1           TME2           -1.6480        5.0614   -1.3928        -1.4447
+3         TCGA-2F-A9KQ      1           TME2           -2.1915      -11.1568   -1.8568        -1.7691
+4         TCGA-2F-A9KR      0           TME3            0.0528        3.2845    1.6877        -0.2206
+5         TCGA-2F-A9KT      0           TME1           -0.9226        7.1762   -1.6106        -1.0915</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Status</strong> (<code>response</code>) — the binary outcome column used for ROC analysis
+<ul>
+<li>Example: <code>OS_status</code></li>
+</ul></li>
+<li><strong>Variables</strong> (<code>variables</code>) — one or more numeric variables used to generate ROC curves
+<ul>
+<li>Example: signature scores, pathway scores, or biomarkers</li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset color palette for ROC curves
+<ul>
+<li><code>nrc</code></li>
+<li><code>jama</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom colors for ROC curves
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette</strong></li>
+</ul></li>
+<li><strong>Transparency</strong> (<code>alpha</code>) — line transparency of ROC curves
+<ul>
+<li>Example: <code>1</code></li>
+</ul></li>
+<li><strong>Compare</strong> (<code>compare</code>) — whether to compare ROC curves statistically
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Compare Method</strong> (<code>compare_method</code>) — statistical method used for ROC comparison
+<ul>
+<li><code>Bootstrap</code></li>
+<li><code>Delong</code></li>
+<li><code>Venkatraman</code></li>
+</ul></li>
+<li><strong>Smooth</strong> (<code>smooth</code>) — whether to smooth ROC curves
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Title</strong> (<code>main</code>) — optional plot title</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a dataset containing one binary outcome column and one or more numeric variables.</li>
+<li>Select the <strong>Status</strong> column.</li>
+<li>Select one or more <strong>Variables</strong>.</li>
+<li>Choose a preset <strong>Palette</strong> or provide custom <strong>Colors</strong>.</li>
+<li>Adjust <strong>Transparency</strong> if needed.</li>
+<li>Choose whether to enable <strong>Compare</strong>.</li>
+<li>If comparison is enabled, select the <strong>Compare Method</strong>.</li>
+<li>Choose whether to apply <strong>Smooth</strong>.</li>
+<li>Optionally enter a plot <strong>Title</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the ROC plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/sig_roc.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="pca-visualization" class="section level3 hasAnchor" number="2.6.13">
+<h3><span class="header-section-number">2.6.13</span> PCA Visualization<a href="functions.html#pca-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Perform Principal Component Analysis (PCA) on an expression matrix and optionally color samples by group information from a phenotype table. The module supports matrix scaling, log transformation, sample labels, group colors, ellipse display, and flexible axis selection.</p>
+<p><strong>Example input</strong></p>
+<p>Expression matrix</p>
+<pre><code>                  TCGA-3M-AB46  TCGA-3M-AB47  TCGA-B7-5818  TCGA-B7-A5TI
+EPCAM                 5.238         4.992         5.641         5.310
+CD8A                  8.421         7.952         6.884         8.103
+GZMB                  7.116         6.208         5.774         6.945
+COL1A1                9.114         8.773         9.562         9.028</code></pre>
+<p>Phenotype data</p>
+<pre><code>           ID            Subtype   Response
+1         TCGA-3M-AB46    GS        Non-response
+2         TCGA-3M-AB47    CIN       Response
+3         TCGA-B7-5818    EBV       Response
+4         TCGA-B7-A5TI    MSI       Non-response</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>ID Column (Pdata)</strong> (<code>id_pdata</code>) — the sample ID column in the phenotype table
+<ul>
+<li>Example: <code>ID</code></li>
+</ul></li>
+<li><strong>Group (Pdata)</strong> (<code>group</code>) — the grouping variable in the phenotype table used to color samples
+<ul>
+<li>Example: subtype, response group, or treatment group</li>
+</ul></li>
+<li><strong>Matrix</strong> (<code>is.matrix</code>) — whether the uploaded expression data is treated as a pure matrix
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Scale</strong> (<code>scale</code>) — whether to scale variables before PCA
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Log</strong> (<code>is.log</code>) — whether the matrix is already log-transformed or should be treated as log-scale input
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Sample Display</strong> (<code>geom.ind</code>) — how samples are shown in the PCA plot
+<ul>
+<li><code>Point</code></li>
+<li><code>Text</code></li>
+<li><code>Both</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette</code>) — preset color palette for sample groups
+<ul>
+<li><code>nrc</code></li>
+<li><code>jama</code></li>
+<li><code>aaas</code></li>
+<li><code>jco</code></li>
+<li><code>paired1</code></li>
+<li><code>paired2</code></li>
+<li><code>paired3</code></li>
+<li><code>paired4</code></li>
+<li><code>accent</code></li>
+<li><code>set2</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols</code>) — custom colors for sample groups
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Palette</strong></li>
+</ul></li>
+<li><strong>Repel Labels</strong> (<code>repel</code>) — whether to repel overlapping sample labels
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Components Number</strong> (<code>ncp</code>) — number of principal components to calculate
+<ul>
+<li>Example: <code>5</code></li>
+</ul></li>
+<li><strong>X-axis</strong> (<code>axes[1]</code>) — principal component displayed on the x-axis
+<ul>
+<li>Example: <code>1</code></li>
+</ul></li>
+<li><strong>Y-axis</strong> (<code>axes[2]</code>) — principal component displayed on the y-axis
+<ul>
+<li>Example: <code>2</code></li>
+</ul></li>
+<li><strong>Add Ellipses</strong> (<code>addEllipses</code>) — whether to add group ellipses to the PCA plot
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload an expression matrix.</li>
+<li>Upload a phenotype table if group annotation is needed.</li>
+<li>Enter the sample <strong>ID Column (Pdata)</strong>.</li>
+<li>Select the <strong>Group (Pdata)</strong> column.</li>
+<li>Choose whether the expression input is a <strong>Matrix</strong>.</li>
+<li>Set <strong>Scale</strong> and <strong>Log</strong> options as needed.</li>
+<li>Select the <strong>Sample Display</strong> mode.</li>
+<li>Choose a preset <strong>Palette</strong> or provide custom <strong>Colors</strong>.</li>
+<li>Adjust label repelling, component number, PCA axes, and ellipse display if needed.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the PCA plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/iobr_pca.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="signature-gsea" class="section level3 hasAnchor" number="2.6.14">
+<h3><span class="header-section-number">2.6.14</span> Signature GSEA<a href="functions.html#signature-gsea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Perform Gene Set Enrichment Analysis (GSEA) based on differential expression results generated from an expression matrix and phenotype data. The module first runs differential expression analysis between two selected groups, then performs GSEA using a selected signature collection and displays the top enriched signatures.</p>
+<p><strong>Example input</strong></p>
+<p>Expression matrix</p>
+<pre><code>                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+ENSG00000000003      8006          2114          767           1556
+ENSG00000000005      1             0             5             5
+ENSG00000000419      3831          2600          1729          1760
+ENSG00000000457      1126          745           1040          1260</code></pre>
+<p>Phenotype data</p>
+<pre><code>          ID            Subtype
+1         TCGA-3M-AB46    GS
+2         TCGA-3M-AB47    CIN
+3         TCGA-B7-5818    EBV
+4         TCGA-B7-A5TI    MSI</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>ID (Pdata)</strong> (<code>pdata_id</code>) — the sample ID column in the phenotype table
+<ul>
+<li>Example: <code>ID</code></li>
+</ul></li>
+<li><strong>Group</strong> (<code>group_id</code>) — the grouping column used for differential expression
+<ul>
+<li>Example: tumor vs normal, responder vs non-responder</li>
+</ul></li>
+<li><strong>Contrast (Case vs Control)</strong> (<code>contrast</code>)
+<ul>
+<li><strong>Case</strong>: the experimental group</li>
+<li><strong>Control</strong>: the reference group</li>
+</ul></li>
+<li><strong>Array</strong> (<code>array</code>) — whether the expression data is from microarray
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Method</strong> (<code>method</code>) — differential expression method
+<ul>
+<li><code>DESeq2</code>: suitable for raw count data</li>
+<li><code>Limma</code>: suitable for log-transformed expression data such as log2 TPM</li>
+</ul></li>
+<li><strong>Padj Cutoff</strong> (<code>padj_cutoff</code>) — adjusted P-value threshold for differential expression filtering
+<ul>
+<li>Example: <code>0.01</code></li>
+</ul></li>
+<li><strong>Logfc Cutoff</strong> (<code>logfc_cutoff</code>) — log fold-change threshold for differential expression filtering
+<ul>
+<li>Example: <code>0.5</code></li>
+</ul></li>
+<li><strong>Palette</strong> (<code>palette_gsea</code>) — preset color palette for the GSEA plot
+<ul>
+<li><code>1</code></li>
+<li><code>2</code></li>
+<li><code>3</code></li>
+<li><code>4</code></li>
+</ul></li>
+<li><strong>Colors</strong> (<code>cols_gsea</code>) — custom colors for the GSEA plot
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+</ul></li>
+<li><strong>Signature</strong> (<code>genesets</code>) — the gene set collection used for enrichment analysis
+<ul>
+<li><code>TME</code></li>
+<li><code>Metabolism</code></li>
+<li><code>Tumor</code></li>
+<li><code>Collection</code></li>
+<li><code>Go_bp</code></li>
+<li><code>Go_cc</code></li>
+<li><code>Go_mf</code></li>
+<li><code>KEGG</code></li>
+<li><code>Hallmark</code></li>
+<li><code>Reactome</code></li>
+</ul></li>
+<li><strong>Signature Numbers</strong> (<code>show_gsea</code>) — number of top enriched signatures displayed in the plot
+<ul>
+<li>Example: <code>8</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload the expression matrix.</li>
+<li>Upload the phenotype table.</li>
+<li>Enter the sample <strong>ID (Pdata)</strong> column name.</li>
+<li>Select the <strong>Group</strong> column.</li>
+<li>Select the <strong>Case</strong> and <strong>Control</strong> groups for comparison.</li>
+<li>Choose <strong>Array</strong> and <strong>Method</strong> according to the input data type.</li>
+<li>Set <strong>Padj Cutoff</strong> and <strong>Logfc Cutoff</strong>.</li>
+<li>Click the first <strong>Run Analysis</strong> button to perform differential expression and GSEA.</li>
+<li>Select the GSEA <strong>Palette</strong>, custom <strong>Colors</strong>, <strong>Signature</strong> collection, and <strong>Signature Numbers</strong> if needed.</li>
+<li>Click the second <strong>Run Analysis</strong> button to update the GSEA plot only.</li>
+<li>View the differential expression result in the <strong>Data</strong> tab.</li>
+<li>View the GSEA plot in the <strong>Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/sig_gsea.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The result plot can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+</div>
+<div id="find-markers" class="section level3 hasAnchor" number="2.6.15">
+<h3><span class="header-section-number">2.6.15</span> Find Markers<a href="functions.html#find-markers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Identify marker genes for each group from bulk transcriptome data using a Seurat-based workflow. The module takes an expression matrix and phenotype data, detects group-specific marker genes, displays a heatmap of top markers, and returns the complete marker table.</p>
+<p><strong>Example input</strong></p>
+<pre><code>                  TCGA-3M-AB46  TCGA-3M-AB47  TCGA-B7-5818  TCGA-B7-A5TI
+EPCAM                 5.238         4.992         5.641         5.310
+CD8A                  8.421         7.952         6.884         8.103
+GZMB                  7.116         6.208         5.774         6.945
+COL1A1                9.114         8.773         9.562         9.028</code></pre>
+<p>Phenotype data</p>
+<pre><code>          ID            Subtype
+1         TCGA-3M-AB46    GS
+2         TCGA-3M-AB47    CIN
+3         TCGA-B7-5818    EBV
+4         TCGA-B7-A5TI    MSI</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>Pdata ID</strong> (<code>id_pdata</code>) — the sample ID column in the phenotype table
+<ul>
+<li>Example: <code>ID</code></li>
+</ul></li>
+<li><strong>Group Column</strong> (<code>group</code>) — the grouping variable used to identify marker genes
+<ul>
+<li>Example: subtype, response group, or treatment group</li>
+</ul></li>
+<li><strong>Top N Markers</strong> (<code>top_n</code>) — number of top marker genes displayed per group in the heatmap
+<ul>
+<li>Example: <code>20</code></li>
+</ul></li>
+<li><strong>Group Color</strong> (<code>group_color_style</code>) — preset color palette for group annotations
+<ul>
+<li><code>npg</code></li>
+<li><code>aaas</code></li>
+<li><code>lancet</code></li>
+<li><code>set1</code></li>
+<li><code>set2</code></li>
+<li><code>paired</code></li>
+</ul></li>
+<li><strong>Heatmap Color</strong> (<code>heatmap_body_color</code>) — preset color palette for heatmap expression values
+<ul>
+<li><code>Red-White-Blue</code></li>
+<li><code>Yellow-Black-Purple</code></li>
+<li><code>Red-Black-Green</code></li>
+<li><code>Spectra</code></li>
+</ul></li>
+<li><strong>Custom Group Colors</strong> (<code>group.colors</code>) — custom colors for group annotations
+<ul>
+<li>Enter color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Group Color</strong></li>
+</ul></li>
+<li><strong>Custom Heatmap Colors</strong> (<code>heatmap.colors</code>) — custom colors for the heatmap body
+<ul>
+<li>Enter at least 2 color names or hex codes separated by commas</li>
+<li>If provided, this setting overrides <strong>Heatmap Color</strong></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload the expression matrix.</li>
+<li>Upload the phenotype table.</li>
+<li>Enter the sample <strong>Pdata ID</strong> column name.</li>
+<li>Select the <strong>Group Column</strong>.</li>
+<li>Set the <strong>Top N Markers</strong> to display in the heatmap.</li>
+<li>Select a preset <strong>Group Color</strong> and <strong>Heatmap Color</strong>, or provide custom colors.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the marker heatmap in the <strong>Plot</strong> tab.</li>
+<li>View the complete marker table in the <strong>Marker Table</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/find_markers_in_bulk.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The result plot and marker table can be exported from the <strong>Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+</div>
+<div id="mutation-module" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Mutation Module<a href="functions.html#mutation-module" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="build-mutation-matrix" class="section level3 hasAnchor" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Build Mutation Matrix<a href="functions.html#build-mutation-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Convert MAF mutation data into a binary mutation matrix. The module summarizes mutation events at the gene level and returns a sample-by-gene matrix indicating whether each gene is mutated in each sample.</p>
+<p><strong>Example input</strong></p>
+<p>Mutation Annotation Format (MAF) table</p>
+<pre><code>                Hugo_Symbol   Tumor_Sample_Barcode   Variant_Classification
+1                 TP53          TCGA-3M-AB46          Missense_Mutation
+2                 ARID1A        TCGA-3M-AB46          Frame_Shift_Del
+3                 PIK3CA        TCGA-3M-AB47          Missense_Mutation
+4                 CDH1          TCGA-B7-5818          Nonsense_Mutation
+5                 FAT4          TCGA-B7-A5TI          Frame_Shift_Ins</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>TCGA</strong> (<code>isTCGA</code>) — whether the uploaded MAF file uses TCGA-style sample identifiers
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+<li><strong>Type to show and download</strong> (<code>table_type</code>) — mutation category displayed in the result table
+<ul>
+<li><code>All</code></li>
+<li><code>SNP</code></li>
+<li><code>INDEL</code></li>
+<li><code>Frameshift</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload a MAF mutation file.</li>
+<li>Select whether the file uses <strong>TCGA</strong> sample IDs.</li>
+<li>Choose the mutation <strong>Type to show and download</strong>.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the binary mutation matrix in the <strong>Data</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<pre><code>                  TCGA-3M-AB46  TCGA-3M-AB47  TCGA-B7-5818  TCGA-B7-A5TI
+TP53                  1              0              0              0
+ARID1A                1              0              0              0
+PIK3CA                0              1              0              0
+CDH1                  0              0              1              0
+FAT4                  0              0              0              1</code></pre>
+<p><strong>Download</strong></p>
+<ul>
+<li>Results can be exported from the <strong>Download</strong> panel.</li>
+</ul>
+</div>
+<div id="identify-mutations" class="section level3 hasAnchor" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Identify Mutations<a href="functions.html#identify-mutations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Identify phenotype-associated mutations by combining a binary mutation matrix with a signature matrix. The module tests whether mutations in specific genes are associated with the selected signature, and generates both an oncoprint and a box plot for visualization.</p>
+<p><strong>Example input</strong></p>
+<p>Mutation matrix</p>
+<pre><code>                  TCGA-3M-AB46  TCGA-3M-AB47  TCGA-B7-5818  TCGA-B7-A5TI
+TP53                  1              0              0              0
+ARID1A                1              0              0              0
+PIK3CA                0              1              0              0
+CDH1                  0              0              1              0
+FAT4                  0              0              0              1</code></pre>
+<p>Signature matrix</p>
+<pre><code>              ID        TMEscore_plus   StromalScore   ImmuneScore
+1         TCGA-3M-AB46    -1.2456         -0.6766        -1.3235
+2         TCGA-3M-AB47     0.8452          0.9613         0.0518
+3         TCGA-B7-5818     0.1264         -0.2425         0.8001
+4         TCGA-B7-A5TI     0.4028          0.4017        -0.4095</code></pre>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><strong>ID Column</strong> (<code>id_signature_matrix</code>) — the sample ID column in the signature matrix
+<ul>
+<li>Example: <code>ID</code></li>
+</ul></li>
+<li><strong>Signature</strong> (<code>signature</code>) — the numeric signature used to test mutation-associated differences
+<ul>
+<li>Example: <code>TMEscore_plus</code></li>
+</ul></li>
+<li><strong>Min Mutation Frequency</strong> (<code>min_mut_freq</code>) — minimum mutation frequency threshold for genes included in the analysis
+<ul>
+<li><code>0.01</code></li>
+<li><code>0.05</code></li>
+<li><code>0.1</code></li>
+</ul></li>
+<li><strong>Method</strong> (<code>method</code>) — statistical method used to identify phenotype-associated mutations
+<ul>
+<li><code>Multi(Cuzick and Wilcoxon)</code></li>
+<li><code>Wilcoxon</code></li>
+</ul></li>
+</ul>
+<p><strong>Parameters for oncoprint</strong></p>
+<ul>
+<li><strong>Group By</strong> (<code>oncoprint_group_by</code>) — grouping method used for oncoprint display
+<ul>
+<li><code>Mean</code></li>
+<li><code>Quantile</code></li>
+</ul></li>
+<li><strong>Gene Counts</strong> (<code>gene_counts</code>) — number of top genes shown in the oncoprint
+<ul>
+<li>Example: <code>10</code></li>
+</ul></li>
+</ul>
+<p><strong>Parameters for box plot</strong></p>
+<ul>
+<li><strong>Point Size</strong> (<code>point_size</code>) — size of points displayed on the box plot
+<ul>
+<li>Example: <code>4.5</code></li>
+</ul></li>
+<li><strong>Point Transparency</strong> (<code>point_alpha</code>) — transparency of points on the box plot
+<ul>
+<li>Example: <code>0.1</code></li>
+</ul></li>
+<li><strong>Show Jitter</strong> (<code>jitter</code>) — whether to display jittered sample points
+<ul>
+<li><code>True</code></li>
+<li><code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Parameters for all results download</strong></p>
+<ul>
+<li><strong>Output Folder Name</strong> (<code>save_path</code>) — folder name used when packaging all generated results
+<ul>
+<li>Example: <code>mutation_results</code></li>
+</ul></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol style="list-style-type: decimal">
+<li>Upload the binary mutation matrix.</li>
+<li>Upload the signature matrix.</li>
+<li>Enter the sample <strong>ID Column</strong> name for the signature matrix.</li>
+<li>Select the target <strong>Signature</strong>.</li>
+<li>Choose the <strong>Min Mutation Frequency</strong> threshold.</li>
+<li>Select the statistical <strong>Method</strong>.</li>
+<li>Adjust the oncoprint parameters if needed.</li>
+<li>Adjust the box plot parameters if needed.</li>
+<li>Click <strong>Run Analysis</strong>.</li>
+<li>View the mutation oncoprint in the <strong>Oncoprint</strong> tab.</li>
+<li>View the mutation-associated signature box plot in the <strong>Box Plot</strong> tab.</li>
+</ol>
+<p><strong>Example output</strong></p>
+<p><img src="fig/find_mutations_oncoprint.png" /></p>
+<p><img src="fig/find_mutations_boxplot.png" /></p>
+<p><strong>Download</strong></p>
+<ul>
+<li>The oncoprint and box plot can be exported from their respective <strong>Download</strong> panels, and all generated results can also be packaged from the <strong>All Results Download</strong> panel.</li>
+<li>An initial plot size is provided, which can be adjusted if needed.</li>
+<li>If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datasets.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-functions.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["IOBRportal_book.pdf", "IOBRportal_book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

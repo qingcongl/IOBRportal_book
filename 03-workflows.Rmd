@@ -1,0 +1,514 @@
+# Workflows
+
+## IOBR Workflow
+
+User-uploaded data workflow for preprocessing, feature calculation, clustering, visualization, survival analysis, correlation analysis, and group comparison.
+
+This workflow starts from user-provided expression data and phenotype data, then connects multiple modules into a complete analysis pipeline for signature scoring or tumor microenvironment deconvolution and downstream interpretation.
+
+**Overview**
+
+The workflow is organized into five parts:
+
+- **Part 1 · Preprocessing & Features**
+  - Counts to TPM
+  - Detect Outliers
+  - Calculate Features
+  - TME Cluster
+  - Combine Pdata
+
+- **Part 2 · Visualization**
+  - Heatmap
+  - Box Plot
+  - Percent Bar Plot
+  - Cell Bar Plot
+
+- **Part 3 · Survival Analysis**
+  - Batch Survival
+  - Forest Plot
+  - Heatmap
+  - Survival Plot
+  - Survival Group
+  - Time ROC
+  - Sig ROC
+
+- **Part 4 · Correlation**
+  - Batch Correlation
+  - Partial Correlation
+  - Single Correlation
+  - Correlation Matrix
+
+- **Part 5 · Group Comparison**
+  - Wilcoxon Test
+  - Kruskal Test
+  - Heatmap
+  - Box Plot
+
+**Data source**
+
+The workflow uses user-uploaded data and intermediate results generated inside the workflow.
+
+Main inputs include:
+
+- **Expression matrix**
+  - Raw count matrix uploaded in **Counts to TPM**
+
+```text
+                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+ENSG00000000003      8006          2114          767           1556
+ENSG00000000005      1             0             5             5
+ENSG00000000419      3831          2600          1729          1760
+ENSG00000000457      1126          745           1040          1260
+```
+
+- **Phenotype / clinical table**
+  - Uploaded in **Combine Pdata**
+
+```text
+      ID           stage     status      Lauren     subtype       EBV     TMEscore_plus_binary     ARID1A       PIK3CA
+TCGA-3M-AB46      Stage_I    Alive     Mixed                        NE          Low               wild_type    wild_type
+TCGA-B7-5818      Stage_I    Alive     Diffuse         EBV    Positive          High              mutatant     mutatant
+TCGA-B7-A5TI      Stage_III  Alive     Diffuse                      NE          Low               wild_type    wild_type
+TCGA-B7-A5TJ      Stage_II   Alive     Intestinal                   NE          Low               wild_type    wild_type
+TCGA-B7-A5TK      Stage_II   Alive     Intestinal                   NE          High              mutatant    wild_type
+```
+
+Intermediate data generated within the workflow include:
+
+- TPM expression matrix
+- outlier-filtered matrix
+- signature score matrix or TME deconvolution matrix
+- cluster annotation
+- combined analysis table for downstream modules
+
+**Counts to TPM**
+
+This step converts uploaded raw count data into a TPM matrix.
+
+**Counts to TPM steps**
+
+1. Open the **Counts to TPM** tab.
+2. Upload the raw expression count matrix.
+3. Set the required parameters for TPM conversion.
+4. Click **Run Analysis**.
+5. Review the generated TPM matrix.
+
+**Detect Outliers**
+
+This step identifies and removes outlier samples based on the TPM matrix generated in the previous step.
+
+**Detect Outliers steps**
+
+1. Open the **Detect Outliers** tab.
+2. Adjust the outlier detection settings if needed.
+3. Click **Run Analysis**.
+4. Review the filtered expression matrix.
+
+**Calculate Features**
+
+This step calculates downstream feature matrices based on the cleaned expression matrix.
+
+Two modes are available:
+
+- **Calculate Sigscores**
+- **Deconvolute TME**
+
+**If Calculate Features = Calculate Sigscores**
+
+The workflow runs the **Calculate_sig_score** module and returns a signature score matrix.
+
+**If Calculate Features = Deconvolute TME**
+
+The workflow runs the **Deconvo_tme** module and returns a TME deconvolution matrix.
+
+**Calculate Features steps**
+
+1. Open the **Calculate Features** tab.
+2. Select **Calculate Sigscores** or **Deconvolute TME**.
+3. Set the corresponding parameters.
+4. Click **Run Analysis**.
+5. Review the generated feature matrix.
+
+**TME Cluster**
+
+This step performs clustering based on the feature matrix generated in the previous step.
+
+**TME Cluster parameters**
+
+- **Features** (`features`) — one or more numeric variables used for clustering
+- **Min Clusters** (`min_nc`) — minimum number of clusters evaluated
+- **Max Clusters** (`max.nc`) — maximum number of clusters evaluated
+
+**TME Cluster steps**
+
+1. Open the **TME Cluster** tab.
+2. Select one or more clustering **Features**.
+3. Set **Min Clusters** and **Max Clusters**.
+4. Click **Run Analysis**.
+5. Review the cluster assignment table and cluster summary.
+
+**Combine Pdata**
+
+This step merges the feature matrix and cluster results with the user-uploaded phenotype table.
+
+This combined table is used as the main shared input for most downstream analyses.
+
+**Combine Pdata steps**
+
+1. Open the **Combine Pdata** tab.
+2. Upload the phenotype or clinical data table.
+3. Match the sample ID columns between phenotype data and feature data.
+4. Click **Run Analysis**.
+5. Review the combined dataset.
+
+**How downstream modules use the prepared data**
+
+After preprocessing and feature generation, the workflow automatically builds a combined dataset that includes:
+
+- phenotype or clinical variables
+- calculated signature scores or TME deconvolution features
+- optional cluster assignment from **TME Cluster**
+
+This combined table is then used as the shared input for downstream modules in Parts 2–5.
+
+**Part 2 · Visualization**
+
+This section provides direct plotting modules for the prepared dataset:
+
+- **Heatmap** — visualize selected signatures or scores across groups
+- **Box Plot** — compare one signature across categorical groups
+- **Percent Bar Plot** — display proportions of categorical annotations
+- **Cell Bar Plot** — show deconvolution-based cell composition across samples
+
+**Part 3 · Survival Analysis**
+
+This section provides survival-related modules using the combined dataset:
+
+- **Batch Survival** — screen multiple variables by Cox analysis
+- **Forest Plot** — visualize hazard ratios from batch survival results
+- **Heatmap** — display selected survival-associated variables
+- **Survival Plot** — Kaplan–Meier curves for a selected signature
+- **Survival Group** — Kaplan–Meier curves for a categorical variable
+- **Time ROC** — time-dependent ROC for prognostic variables
+- **Sig ROC** — ROC analysis for selected variables against outcome
+
+**Part 4 · Correlation**
+
+This section provides correlation-based analyses:
+
+- **Batch Correlation** — correlate one target with multiple features
+- **Partial Correlation** — correlate variables while adjusting for a control variable
+- **Single Correlation** — visualize correlation between two variables
+- **Correlation Matrix** — compute and plot feature-set correlation matrices
+
+**Part 5 · Group Comparison**
+
+This section provides statistical comparison modules:
+
+- **Wilcoxon Test** — compare numeric variables between two groups
+- **Kruskal Test** — compare numeric variables across multiple groups
+- **Heatmap** — visualize selected group-associated variables
+- **Box Plot** — visualize group differences for one selected variable
+
+**Output**
+
+The workflow returns a processed user dataset that can be reused across multiple downstream modules, including:
+
+- TPM expression matrix
+- outlier-filtered expression matrix
+- signature score matrix or TME deconvolution matrix
+- optional cluster annotation
+- combined phenotype-feature table
+- downstream plots and result tables generated in each part
+
+**Download**
+
+- Tables generated in downstream modules can be exported from their corresponding **Download** panels.
+- Plots generated in downstream modules can be exported from their corresponding **Download** panels.
+- An initial plot size is provided, which can be adjusted if needed.
+- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
+
+
+## Mutation Workflow
+
+User-uploaded workflow for mutation matrix construction and mutation-associated signature analysis.
+
+This workflow starts from a mutation annotation file and converts it into a binary mutation matrix, then combines the generated mutation matrix with a user-provided signature matrix to identify phenotype- or signature-associated mutations.
+
+**Overview**
+
+The workflow is organized into two parts:
+
+- **Build Mutation Matrix**
+- **Find Mutations**
+
+**Data source**
+
+The workflow uses user-uploaded data and intermediate results generated inside the workflow.
+
+Main inputs include:
+
+- **Mutation annotation file**
+  - Uploaded in **Build Mutation Matrix**
+  - Typically a MAF-format mutation file
+
+Mutation Annotation Format (MAF) table
+
+```text
+                Hugo_Symbol   Tumor_Sample_Barcode   Variant_Classification
+1                 TP53          TCGA-3M-AB46          Missense_Mutation
+2                 ARID1A        TCGA-3M-AB46          Frame_Shift_Del
+3                 PIK3CA        TCGA-3M-AB47          Missense_Mutation
+4                 CDH1          TCGA-B7-5818          Nonsense_Mutation
+5                 FAT4          TCGA-B7-A5TI          Frame_Shift_Ins
+```
+
+- **Signature matrix**
+  - Uploaded in **Find Mutations**
+  - Used to test mutation-associated differences in a selected signature
+
+```text
+              ID          CD_8_T_effector       DDR           APM    Immune_Checkpoint  CellCycle_Reg
+1         TCGA-2F-A9KO         4.7093          -4.3653       3.1724          4.5259           -1.3468
+2         TCGA-2F-A9KP        -1.6480           5.0614      -1.3928         -1.4447            3.2313
+3         TCGA-2F-A9KQ        -2.1915         -11.1568      -1.8568         -1.7691            0.6771
+4         TCGA-2F-A9KR         0.0528           3.2845       1.6877         -0.2206           -1.3867
+5         TCGA-2F-A9KT        -0.9226           7.1762      -1.6106         -1.0915           -1.1749
+```
+
+Intermediate data generated within the workflow include:
+
+- binary mutation matrix
+- subtype-specific mutation matrices such as SNP, INDEL, or Frameshift tables
+- mutation-associated plots generated in downstream analysis
+
+**Build Mutation Matrix**
+
+This step converts the uploaded mutation annotation file into a binary mutation matrix for downstream analysis.
+
+The generated matrix is automatically passed to the next step in the workflow.
+
+**Parameters**
+
+- **TCGA** (`isTCGA`)
+  - `True`
+  - `False`
+
+- **Type to show and download** (`table_type`)
+  - `All`
+  - `SNP`
+  - `INDEL`
+  - `Frameshift`
+
+**Build Mutation Matrix steps**
+
+1. Open the **Build Mutation Matrix** tab.
+2. Upload the mutation annotation file.
+3. Set whether the file uses **TCGA** sample naming.
+4. Select the mutation table type to display.
+5. Click **Run Analysis**.
+6. Review the generated mutation matrix.
+
+**Find Mutations**
+
+This step identifies mutations associated with a selected signature using the mutation matrix generated in the previous step.
+
+It produces at least two plots:
+
+- **Oncoprint**
+- **Box Plot**
+
+**Parameters**
+
+- **ID Column** (`id_signature_matrix`)
+  - Sample ID column in the uploaded signature matrix
+
+- **Signature** (`signature`)
+  - Numeric signature or score column selected from the signature matrix
+
+- **Min Mutation Frequency** (`min_mut_freq`)
+  - `0.01`
+  - `0.05`
+  - `0.1`
+
+- **Method** (`method`)
+  - `Multi(Cuzick and Wilcoxon)`
+  - `Wilcoxon`
+
+**Oncoprint parameters**
+
+- **Group By** (`oncoprint_group_by`)
+  - `Mean`
+  - `Quantile`
+
+- **Gene Counts** (`gene_counts`)
+  - Number of top mutated genes displayed in the oncoprint
+
+**Box Plot parameters**
+
+- **Point Size** (`point_size`)
+  - Controls point size in the box plot
+
+- **Point Transparency** (`point_alpha`)
+  - Controls point transparency in the box plot
+
+- **Show Jitter** (`jitter`)
+  - `True`
+  - `False`
+
+**Find Mutations steps**
+
+1. Open the **Find Mutations** tab.
+2. Upload the signature matrix.
+3. Set the **ID Column** and select the target **Signature**.
+4. Choose the mutation frequency threshold and statistical method.
+5. Adjust oncoprint and box plot parameters if needed.
+6. Click **Run Analysis**.
+7. Review the generated **Oncoprint** and **Box Plot** results.
+
+**How the workflow connects the two parts**
+
+After **Build Mutation Matrix** is completed, the generated mutation matrix is automatically used as the mutation input for **Find Mutations**.
+
+You only need to upload the signature matrix in the second step and then run the mutation-association analysis.
+
+**Output**
+
+The workflow returns results that can be reused for mutation-related interpretation, including:
+
+- binary mutation matrix
+- subtype-specific mutation matrix tables
+- mutation-associated oncoprint
+- mutation-associated box plot
+- result files generated by the mutation analysis step
+
+**Download**
+
+- Tables generated in the workflow can be exported from their corresponding **Download** panels.
+- Plots generated in the workflow can be exported from the **Download** panels.
+- An initial plot size is provided, which can be adjusted if needed.
+- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
+
+
+## Signature-Gene Workflow
+
+User-uploaded workflow for preprocessing, signature calculation, and signature-gene correlation analysis. It supports correlation analysis between built-in IOBR signatures and their related genes, as well as screening correlations between selected signatures and all genes in the TPM matrix.
+
+This workflow starts from a user-provided count matrix, converts it to TPM, removes outlier samples if needed, calculates signature scores, and then combines signature scores with gene expression values for downstream correlation analysis.
+
+**Overview**
+
+The workflow is organized into two parts:
+
+- **Part 1 · Preprocessing & Features**
+  - Counts to TPM
+  - Detect Outliers
+  - Calculate Signatures
+
+- **Part 2 · Correlation**
+  - Batch Correlation
+  - Single Correlation
+  - Correlation Matrix
+
+**Data source**
+
+The workflow uses user-uploaded data and intermediate results generated inside the workflow.
+
+Main inputs include:
+
+- **Expression matrix**
+  - Raw count matrix uploaded in **Counts to TPM**
+
+```text
+                  TCGA-BR-6455  TCGA-BR-7196  TCGA-BR-8371  TCGA-BR-8380
+ENSG00000000003      8006          2114          767           1556
+ENSG00000000005      1             0             5             5
+ENSG00000000419      3831          2600          1729          1760
+ENSG00000000457      1126          745           1040          1260
+```
+
+Intermediate data generated within the workflow include:
+
+- TPM expression matrix
+- outlier-filtered TPM matrix
+- signature score matrix
+- combined signature-gene matrix for downstream correlation analysis
+
+**Counts to TPM**
+
+This step converts uploaded raw count data into a TPM matrix.
+
+**Counts to TPM steps**
+
+1. Open the **Counts to TPM** tab.
+2. Upload the raw count matrix.
+3. Set the required TPM conversion parameters.
+4. Click **Run Analysis**.
+5. Review the generated TPM matrix.
+
+**Detect Outliers**
+
+This step identifies and removes outlier samples based on the TPM matrix generated in the previous step.
+
+**Detect Outliers steps**
+
+1. Open the **Detect Outliers** tab.
+2. Adjust the outlier detection settings if needed.
+3. Click **Run Analysis**.
+4. Review the filtered TPM matrix.
+
+**Calculate Signatures**
+
+This step calculates signature scores from the cleaned TPM matrix.
+
+The generated signature score matrix is used together with the TPM matrix in downstream correlation analysis.
+
+**Calculate Signatures steps**
+
+1. Open the **Calculate Signatures** tab.
+2. Select the signature scoring parameters.
+3. Click **Run Analysis**.
+4. Review the generated signature score matrix.
+
+**How the workflow builds the analysis table**
+
+After signature calculation, the workflow automatically constructs a combined matrix by:
+
+1. transposing the TPM matrix so that samples are rows and genes are columns
+2. keeping the signature score matrix in sample-wise format
+3. merging the two tables by **ID**
+
+The final combined table contains:
+
+- **ID**
+- signature score columns
+- gene expression columns
+
+This combined table is then used as the shared input for downstream correlation modules.
+
+**Part 2 · Correlation**
+
+This section provides correlation-based analyses between signatures and genes:
+
+- **Batch Correlation** — correlate one selected signature with multiple genes
+- **Single Correlation** — visualize correlation between one signature and one gene
+- **Correlation Matrix** — compute and plot correlations between selected signature set and gene set
+
+In this workflow, the correlation modules are configured so that signature variables are used as targets and gene expression variables are used as features.
+
+**Output**
+
+The workflow returns processed data that can be reused across correlation analyses, including:
+
+- TPM expression matrix
+- outlier-filtered TPM matrix
+- signature score matrix
+- merged signature-gene matrix
+- downstream correlation plots and result tables
+
+**Download**
+
+- Tables generated in downstream modules can be exported from their corresponding **Download** panels.
+- Plots generated in downstream modules can be exported from their corresponding **Download** panels.
+- An initial plot size is provided, which can be adjusted if needed.
+- If needed, you can adjust the plot width and height before downloading to obtain a more suitable layout.
