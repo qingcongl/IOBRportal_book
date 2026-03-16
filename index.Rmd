@@ -13,7 +13,7 @@ description: |
 
 # Framework
 
-![](fig/IOBRportal overview.svg)
+![](fig/IOBRportal overview.png)
 
 ## 📚 Introduction
 
