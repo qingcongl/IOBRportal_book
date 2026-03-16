@@ -1,6 +1,6 @@
 Welcome! 
 
-This is a IOBRportal book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+This is a [IOBRportal book](https://qingcongl.github.io/IOBRportal_book/) based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
 
 This template provides a skeleton file structure that you can edit to create your book. 
 
